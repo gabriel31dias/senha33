@@ -1,0 +1,9 @@
+name: Aviso teams webhook 1.0.0
+on: [pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisando no teams
+        run: |
+          curl -X POST https://cgcontadoresti.webhook.office.com/webhookb2/d66789f7-479a-4ea0-a451-07314ef39ec3@2e3906f9-085e-4770-b9d3-4d81b33b8927/IncomingWebhook/1c057fa92e1a492580e652b9d6100bea/30b97f96-f2a8-46f5-a6ce-916441bc8689 -H "Content-Type: application/json" -d '{ "@type": "MessageCard", "@context": "http://schema.org/extensions", "themeColor": "0076D7", "summary": "Pull request - ${{ github.repository }}", "sections": [{ "activityTitle": "Pull request - <a href=\"${{ github.repositoryUrl }}\">${{ github.repository }}</a>", "activitySubtitle": "Github Actions", "activityImage": "https://cdn-icons-png.flaticon.com/512/25/25231.png", "facts": [{ "name": "Destino:", "value": "${{ github.base_ref }}" }, { "name": "Tipo:", "value": "desconhecido" }, { "name": "PR Link:", "value": "${{ github.event.pull_request._links.html.href }}" }, { "name": "Solicitante", "value": "<a href=\"${{ github.event.sender.html_url }}\"> ${{ github.event.sender.login }} </a>" }], "markdown": true }] }'
