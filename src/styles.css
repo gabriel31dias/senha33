@@ -1,16 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
 
-.p-datatable .p-datatable-thead > tr > th {
-    text-align: left;
-    padding: 0.571rem 0.857rem;
-    border: 1px solid #c8c8c8;
-    border-width: 1px 1px 1px 1px;
-    font-weight: 700;
-    color: #333333;
-    background: #f4f4f4;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    font-size: 10px
+body {
+  background-color: #f8f8f8;
 }
+
+
+.p-datatable .p-datatable-header {
+  background: #555 !important;
+  color: white !important;
+  border: solid #c8c8c8;
+  border-width: 1px 1px 0;
+  padding: 0.857rem 1rem;
+  font-weight: 700;
+}
+
+.p-datatable-wrapper{
+  margin: 30px;
+  border-radius: 10px;
+  border-width: 10px;
+  border-width: inherit0 1px 1px;
+
+}
+
+.p-datatable .p-paginator-bottom {
+  border-width: 0 !important;
+  border-radius: 0 !important;
+}
+
+.-datatable-wrapper {
+  margin: 30px;
+  border-width: 10px !important;
+  border-radius: 10px !important;
+  background-color: #ffc107;
+}
+
+.p-paginator {
+  background: white !important;
+  color: white !important;
+  border: 1px solid #c8c8c8;
+  padding: 0;
+  border-radius: 3px;
+}
+
+body .ui-progressbar .ui-progressbar-value {
+  background: #ffc107 !important;
+}
+
+.p-checkbox .p-checkbox-box.p-highlight {
+  border-color: #ffc107 !important;
+  background: #ffc107  !important;
+}
+
+.btn-warning {
+  color: white;
+  background-color: #ffc107;
+  border-color: #ffc107;
+}
+
+
+.p-datatable .p-datatable-thead>tr>th {
+  text-align: left;
+  padding: 0.571rem 0.857rem;
+  border: 1px solid #c8c8c8;
+  font-weight: 700;
+  color: #fff!important;
+  background: #555!important;
+  transition: background-color .2s,box-shadow .2s;
+  font-size: 10px;
+}
+
+
 
 .p-dropdown .p-dropdown-label {
   background: #0000;

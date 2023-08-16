@@ -70,7 +70,7 @@
               ]
             },
             "ga": {
-              "outputPath": "C:/xampp/htdocs/intranet/app/senhas_fiscal",
+              "outputPath": "C:/xampp/htdocs/intranet/app/senhas-fiscal",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -79,7 +79,7 @@
               ]
             },
             "jenkins-hml": {
-              "outputPath": "/var/www/html/intranet/app/esocial-temp-build",
+              "outputPath": "/var/www/html/intranet/app/senhas-fiscal-temp-build",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -88,7 +88,7 @@
               ]
             },
             "jenkins-prod": {
-              "outputPath": "/var/www/html/intranet/app/esocial-temp-build",
+              "outputPath": "/var/www/html/intranet/app/senhas-fiscal-temp-build",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -97,7 +97,7 @@
               ]
             },
             "jf": {
-              "outputPath": "E:/cgcontadores/backend/intranet/app/esocial",
+              "outputPath": "E:/cgcontadores/backend/intranet/app/senhas-fiscal",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -106,7 +106,7 @@
               ]
             },
             "eg": {
-              "outputPath": "../intranet/app/esocial",
+              "outputPath": "../intranet/app/senhas-fiscal",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",
@@ -115,7 +115,7 @@
               ]
             },
             "arthur": {
-              "outputPath": "C:/CG_Contadores/Projetos/intranet/app/esocial",
+              "outputPath": "C:/CG_Contadores/Projetos/intranet/app/senhas-fiscal",
               "fileReplacements": [
                 {
                   "replace": "src/environments/environment.ts",

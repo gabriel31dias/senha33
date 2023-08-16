@@ -5,7 +5,7 @@ import { PageNotFoundComponent } from "./pages/public/page-not-found/page-not-fo
 
 const routes: Routes = [
   {
-    path: "senhas",
+    path: "",
     loadChildren: () =>
       import("./pages/private/senhas/senhas.module").then(
         (module) => module.SenhasModule

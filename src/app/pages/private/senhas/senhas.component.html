@@ -1,6 +1,9 @@
 <div>
   <section style="margin-bottom: 20px">
-    <p-progressBar class="ui-progressbar-label ng-star-inserted" [value]="porcentagemTotal"></p-progressBar>
+    <p-progressBar
+      class="ui-progressbar-label ng-star-inserted"
+      [value]="porcentagemTotal"
+    ></p-progressBar>
   </section>
 
   <div class="row justify-content-between align-items-center">
@@ -9,11 +12,22 @@
         <div class="col-4">
           <div class="ui-g ui-fluid pl-3">
             <div class="ui-inputgroup">
-              <button class="btn btn-sm btn-warning mb-1 ml-1" (click)="showFilters = true" pTooltip="Clique para filtrar"
-                tooltipPosition="right">
-                <i class="fa fa-filter" style="color: #212529;" title="Filtrar dados"></i>
+              <button
+                class="btn btn-sm btn-warning mb-1 ml-1"
+                (click)="showFilters = true"
+                pTooltip="Clique para filtrar"
+                tooltipPosition="right"
+              >
+                <i
+                  class="fa fa-filter"
+                  style="color: #212529"
+                  title="Filtrar dados"
+                ></i>
               </button>
-              <button (click)="exportDataToXlsx()" class="btn btn-sm btn-outline-dark mb-1 mx-1">
+              <button
+                (click)="exportDataToXlsx()"
+                class="btn btn-sm btn-outline-dark mb-1 mx-1"
+              >
                 <i class="fa fa-file-excel" title="Exportar para Excel"></i>
               </button>
             </div>
@@ -21,15 +35,20 @@
         </div>
         <div class="col px-0">
           <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span><input (input)="applyFilter($event)"
-              type="text" pinputtext placeholder="Buscar"
-              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched" />
+            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span
+            ><input
+              (input)="applyFilter($event)"
+              type="text"
+              pinputtext
+              placeholder="Buscar"
+              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+            />
           </div>
         </div>
       </div>
     </div>
     <div class="col-5">
-      <div class="ui-g ui-fluid pl-3" style="text-align: center;">
+      <div class="ui-g ui-fluid pl-3" style="text-align: center">
         <label for="infos">
           Total de empresas: {{ totalEmpresas }} - Total de trabalhadores:
           {{ totalTrabalhadores }}
@@ -39,40 +58,57 @@
     <div class="col-4">
       <div class="display-inline-block float-right">
         <!-- <button class="btn btn-sm btn-warning mb-1 ml-1" (click)="consultaDominio()" tooltipPosition="left"> -->
-        <p-inputMask [(ngModel)]="searchComp" [style]="{ 'margin-bottom': '8px' }" mask="99/9999"
-          placeholder="Mês/Ano"></p-inputMask>
-        <button (click)="setCompetencia()" class="btn btn-sm btn-warning mb-1 mx-1" style="color: #212529;" tooltipPosition="left">
+        <p-inputMask
+          [(ngModel)]="searchComp"
+          [style]="{ 'margin-bottom': '8px' }"
+          mask="99/9999"
+          placeholder="Mês/Ano"
+        ></p-inputMask>
+        <button
+          (click)="setCompetencia()"
+          class="btn btn-sm btn-warning mb-1 mx-1"
+          style="color: #212529"
+          tooltipPosition="left"
+        >
           Pesquisar Comp.
         </button>
       </div>
     </div>
   </div>
-  <p-table *ngIf="visibleTable" [loading]="loading" [globalFilterFields]="[
+
+  <p-table
+    *ngIf="visibleTable"
+    [loading]="loading"
+    [globalFilterFields]="[
       'cod_empresa',
       'razao_social',
       'cnpj',
       'nome_responsavel',
       'nome_cordenador'
-    ]" #dt [value]="dataListagem" [paginator]="true" [rows]="15" dataKey="cod_empresa">
-    <ng-template pTemplate="caption">
-      <div style="text-align: center; font-size: 12px">
-        Senhas:
-        {{ mesAtualLabel }}
-      </div>
-    </ng-template>
+    ]"
+    #dt
+    [value]="dataListagem"
+    [paginator]="true"
+    [rows]="15"
+    dataKey="cod_empresa"
+  >
     <ng-template pTemplate="header" let-columns>
       <tr>
-        <th rowspan="2" class="th_c">#</th>
-        <th rowspan="2">Cod. Empresa</th>
+        <th rowspan="2" class="th_c">Código</th>
+        <th rowspan="2">Empresa</th>
+        <th rowspan="2">Grupo</th>
         <th rowspan="2">Razão social</th>
         <th rowspan="2">CNPJ</th>
-        <th rowspan="2">Responsável</th>
-
-        <th rowspan="2">Coordenador</th>
-        <th rowspan="2">Validados</th>
+        <th rowspan="2">Observação</th>
       </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-rowData let-objeto let-expanded="expanded" let-columns="columns">
+    <ng-template
+      pTemplate="body"
+      let-rowData
+      let-objeto
+      let-expanded="expanded"
+      let-columns="columns"
+    >
       <tr>
         <td>
           <a href="#" [pRowToggler]="rowData">
@@ -107,134 +143,189 @@
         <td colspan="7">
           <div class="col-sm-12 p-3">
             <div style="margin-bottom: 1%" class="p-inputgroup">
-              <span style="
+              <span
+                style="
                   height: 39px !important;
                   color: white !important;
                   background-color: #ffc107 !important;
                   border-color: #ffc107 !important;
-                " (click)="exportDataToEmpregadosXlsx(rowDataItem.empregados)"
-                class="p-inputgroup-addon btn btn-sm btn-outline-dark mx-1">
-                <i class="fa fa-file-excel"></i></span><span class="p-inputgroup-addon">
-                <i class="pi pi-search"></i></span>
-              <input (input)="dtinside.filterGlobal(getEventValue($event), 'contains')" type="text" pinputtext=""
-                placeholder="Buscar" class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched" />
+                "
+                (click)="exportDataToEmpregadosXlsx(rowDataItem.empregados)"
+                class="p-inputgroup-addon btn btn-sm btn-outline-dark mx-1"
+              >
+                <i class="fa fa-file-excel"></i></span
+              ><span class="p-inputgroup-addon">
+                <i class="pi pi-search"></i
+              ></span>
+              <input
+                (input)="
+                  dtinside.filterGlobal(getEventValue($event), 'contains')
+                "
+                type="text"
+                pinputtext=""
+                placeholder="Buscar"
+                class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+              />
             </div>
-            <p-table #dtinside [value]="rowDataItem.empregados" dataKey="cod_empregado" [globalFilterFields]="[
+            <p-table
+              #dtinside
+              [value]="rowDataItem.empregados"
+              dataKey="cod_empregado"
+              [globalFilterFields]="[
                 'cod_empregado',
                 'nome_empregado',
                 'data_evento',
                 'status_validado',
                 'tipo_evento'
-              ]">
+              ]"
+            >
               <ng-template pTemplate="header">
-      <tr>
-        <th pSortableColumn="cod_empregado">
-          Cod. do empregado<p-sortIcon field="price"></p-sortIcon>
-        </th>
-        <th pSortableColumn="nome_empregado">
-          Nome <p-sortIcon field="customer"></p-sortIcon>
-        </th>
-        <th pSortableColumn="inicio_contrato">
-          Inicio contrato<p-sortIcon field="date"></p-sortIcon>
-        </th>
-        <th pSortableColumn="data_transmissao">
-          Data Transmissão<p-sortIcon field="amount"></p-sortIcon>
-        </th>
-        <th pSortableColumn="data_demissao">
-          Data Demissão<p-sortIcon field="amount"></p-sortIcon>
-        </th>
-        <th pSortableColumn="situacao">
-          Status<p-sortIcon field="status"></p-sortIcon>
-        </th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-empregado>
-      <tr>
-        <td>{{ empregado.cod_empregado }}</td>
-        <td>
-          {{ empregado.nome_empregado }}
+                <tr>
+                  <th pSortableColumn="cod_empregado">
+                    Cod. do empregado<p-sortIcon field="price"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="nome_empregado">
+                    Nome <p-sortIcon field="customer"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="inicio_contrato">
+                    Inicio contrato<p-sortIcon field="date"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="data_transmissao">
+                    Data Transmissão<p-sortIcon field="amount"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="data_demissao">
+                    Data Demissão<p-sortIcon field="amount"></p-sortIcon>
+                  </th>
+                  <th pSortableColumn="situacao">
+                    Status<p-sortIcon field="status"></p-sortIcon>
+                  </th>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-empregado>
+                <tr>
+                  <td>{{ empregado.cod_empregado }}</td>
+                  <td>
+                    {{ empregado.nome_empregado }}
+                  </td>
+                  <td>{{ formatarData(empregado.inicio_contrato) }}</td>
+                  <td>{{ formatarData(empregado.data_transmissao) }}</td>
+                  <td>{{ formatarData(empregado.data_demissao) }}</td>
+                  <td>{{ empregado.situacao }}</td>
+                </tr>
+              </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                  <td colspan="6">There are no order for this product yet.</td>
+                </tr>
+              </ng-template>
+            </p-table>
+          </div>
         </td>
-        <td>{{ formatarData(empregado.inicio_contrato) }}</td>
-        <td>{{ formatarData(empregado.data_transmissao) }}</td>
-        <td>{{ formatarData(empregado.data_demissao) }}</td>
-        <td>{{ empregado.situacao }}</td>
       </tr>
     </ng-template>
-    <ng-template pTemplate="emptymessage">
+    <ng-template pTemplate="emptymessage" let-listaCompleta>
       <tr>
-        <td colspan="6">There are no order for this product yet.</td>
+        <td align="center">Não foram encontrados dados.</td>
       </tr>
     </ng-template>
   </p-table>
-</div>
-</td>
-</tr>
-</ng-template>
-<ng-template pTemplate="emptymessage" let-listaCompleta>
-  <tr>
-    <td align="center">Não foram encontrados dados.</td>
-  </tr>
-</ng-template>
-</p-table>
 
-<div *ngIf="!dataListagem">
-  <p align="right">Nenhum registro encontrado.</p>
-</div>
+  <div *ngIf="!dataListagem">
+    <p align="right">Nenhum registro encontrado.</p>
+  </div>
 
-<section class="custom-filtro">
-  <p-sidebar [style]="{ height: '100%', 'z-index': '10000' }" [(visible)]="showFilters" position="left"
-    [baseZIndex]="10000" class="custom-filter">
-    <div class="row mx-2">
-      <h4 style="padding-top: 0px; padding-bottom: 0px; margin-bottom: 0px">
-        <i class="fa fa-filter mb-3"></i> Filtro
-      </h4>
-    </div>
-    <div class="mt-2 display-inline-block float-right">
-      <button (click)="clearFilters()" onclick="document.getElementById('cod-input').value = ''"
-        class="btn btn-outline-danger btn-sm float-right" style="margin: auto !important">
-        <i class="fa fa-eraser"></i> Limpar
-      </button>
-    </div>
+  <section class="custom-filtro">
+    <p-sidebar
+      [style]="{ height: '100%', 'z-index': '10000' }"
+      [(visible)]="showFilters"
+      position="left"
+      [baseZIndex]="10000"
+      class="custom-filter"
+    >
+      <div class="row mx-2">
+        <h4 style="padding-top: 0px; padding-bottom: 0px; margin-bottom: 0px">
+          <i class="fa fa-filter mb-3"></i> Filtro
+        </h4>
+      </div>
+      <div class="mt-2 display-inline-block float-right">
+        <button
+          (click)="clearFilters()"
+          onclick="document.getElementById('cod-input').value = ''"
+          class="btn btn-outline-danger btn-sm float-right"
+          style="margin: auto !important"
+        >
+          <i class="fa fa-eraser"></i> Limpar
+        </button>
+      </div>
 
-    <div>
-      <br />
-      <span class="ui-label">
-        <label for="_codigo">Código: </label>
+      <div>
         <br />
-        <input id="cod-input" [(ngModel)]="codString" (input)="addFilter($event, 'cod_empresa')" type="number" size="15"
-          pInputText />
-      </span>
-      <br />
-      <span class="ui-label">
-        <label for="Empresa">Empresa: </label><br />
-        <p-multiSelect [style]="{ width: '100%' }" [ngModelOptions]="{ standalone: true }" [(ngModel)]="empSelecionada"
-          (onChange)="addFilter($event, 'razao_social')" [options]="filterEmpresa" optionLabel="name"
-          defaultLabel="Empresa"></p-multiSelect>
-      </span>
+        <span class="ui-label">
+          <label for="_codigo">Código: </label>
+          <br />
+          <input
+            id="cod-input"
+            [(ngModel)]="codString"
+            (input)="addFilter($event, 'cod_empresa')"
+            type="number"
+            size="15"
+            pInputText
+          />
+        </span>
+        <br />
+        <span class="ui-label">
+          <label for="Empresa">Empresa: </label><br />
+          <p-multiSelect
+            [style]="{ width: '100%' }"
+            [ngModelOptions]="{ standalone: true }"
+            [(ngModel)]="empSelecionada"
+            (onChange)="addFilter($event, 'razao_social')"
+            [options]="filterEmpresa"
+            optionLabel="name"
+            defaultLabel="Empresa"
+          ></p-multiSelect>
+        </span>
 
-      <br />
-      <span class="ui-label">
-        <label for="Empresa">Responsável: </label><br />
-        <p-multiSelect [(ngModel)]="respSelecionado" [ngModelOptions]="{ standalone: true }"
-          (onChange)="addFilter($event, 'id_responsavel')" [options]="usuariosExecutoresRh" optionLabel="name"
-          [style]="{ width: '100%' }" defaultLabel="Responsável"></p-multiSelect>
-      </span>
+        <br />
+        <span class="ui-label">
+          <label for="Empresa">Responsável: </label><br />
+          <p-multiSelect
+            [(ngModel)]="respSelecionado"
+            [ngModelOptions]="{ standalone: true }"
+            (onChange)="addFilter($event, 'id_responsavel')"
+            [options]="usuariosExecutoresRh"
+            optionLabel="name"
+            [style]="{ width: '100%' }"
+            defaultLabel="Responsável"
+          ></p-multiSelect>
+        </span>
 
-      <br />
-      <span class="ui-label">
-        <label for="Empresa">Coordenador: </label><br />
-        <p-multiSelect [(ngModel)]="cordSelecionado" [ngModelOptions]="{ standalone: true }"
-          (onChange)="addFilter($event, 'id_cordenador')" optionLabel="name" [options]="usuariosCordenadoresRh"
-          [style]="{ width: '100%' }" defaultLabel="Coordenador"></p-multiSelect>
-      </span>
-      <br />
-      <span class="ui-label">
-        <label for="Empresa">Status: </label><br />
-        <p-dropdown [style]="{ width: '100%' }" [ngModelOptions]="{ standalone: true }"
-          (onChange)="filterTransferidos($event)" [(ngModel)]="status" [options]="statusEmpresas"
-          defaultLabel="label"></p-dropdown>
-      </span>
-    </div>
-  </p-sidebar>
-</section>
+        <br />
+        <span class="ui-label">
+          <label for="Empresa">Coordenador: </label><br />
+          <p-multiSelect
+            [(ngModel)]="cordSelecionado"
+            [ngModelOptions]="{ standalone: true }"
+            (onChange)="addFilter($event, 'id_cordenador')"
+            optionLabel="name"
+            [options]="usuariosCordenadoresRh"
+            [style]="{ width: '100%' }"
+            defaultLabel="Coordenador"
+          ></p-multiSelect>
+        </span>
+        <br />
+        <span class="ui-label">
+          <label for="Empresa">Status: </label><br />
+          <p-dropdown
+            [style]="{ width: '100%' }"
+            [ngModelOptions]="{ standalone: true }"
+            (onChange)="filterTransferidos($event)"
+            [(ngModel)]="status"
+            [options]="statusEmpresas"
+            defaultLabel="label"
+          ></p-dropdown>
+        </span>
+      </div>
+    </p-sidebar>
+  </section>
 </div>
