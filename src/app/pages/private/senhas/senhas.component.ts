@@ -6,6 +6,10 @@ import * as XLSX from "xlsx";
 import { DatePipe } from "@angular/common";
 import { TitleService } from "src/app/services/title.service";
 
+interface Code {
+  code: string
+}
+
 @Component({
   selector: "app-senhas",
   templateUrl: "./senhas.component.html",
@@ -104,7 +108,29 @@ export class SenhasComponent implements OnInit {
     return mesAtual + "/" + anoAtual;
   }
 
+  codes!: Code[];
+
+  selectedCodes!: Code[];
+
+
+  cars = [
+    { label: 'BMW', value: 'bmw' },
+    { label: 'Audi', value: 'audi' },
+    { label: 'Mercedes', value: 'mercedes' },
+  ];
+
+  selectedCars: string[] = [];
+
   async ngOnInit() {
+
+    this.codes = [
+      { code: '12556' },
+      { code: '61566' },
+      { code: '78266' },
+      { code: '97223' },
+      { code: '23657' }
+    ];
+
     this.sharedTitleService.setTitle("eSocial S-2399 Trabalhador Sem Vínculo");
 
     this.competenciaAtual =
@@ -127,6 +153,7 @@ export class SenhasComponent implements OnInit {
 
     await this.setUpTable();
   }
+
 
   async calcularPorcentagemSomada(items: any) {
     let soma = 0;

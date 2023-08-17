@@ -4,7 +4,6 @@ body {
   background-color: #f8f8f8;
 }
 
-
 .p-datatable .p-datatable-header {
   background: #555 !important;
   color: white !important;
@@ -14,12 +13,11 @@ body {
   font-weight: 700;
 }
 
-.p-datatable-wrapper{
+.p-datatable-wrapper {
   margin: 30px;
   border-radius: 10px;
   border-width: 10px;
   border-width: inherit0 1px 1px;
-
 }
 
 .p-datatable .p-paginator-bottom {
@@ -48,7 +46,7 @@ body .ui-progressbar .ui-progressbar-value {
 
 .p-checkbox .p-checkbox-box.p-highlight {
   border-color: #ffc107 !important;
-  background: #ffc107  !important;
+  background: #ffc107 !important;
 }
 
 .btn-warning {
@@ -57,19 +55,16 @@ body .ui-progressbar .ui-progressbar-value {
   border-color: #ffc107;
 }
 
-
-.p-datatable .p-datatable-thead>tr>th {
+.p-datatable .p-datatable-thead > tr > th {
   text-align: left;
   padding: 0.571rem 0.857rem;
   border: 1px solid #c8c8c8;
   font-weight: 700;
-  color: #fff!important;
-  background: #555!important;
-  transition: background-color .2s,box-shadow .2s;
+  color: #fff !important;
+  background: #555 !important;
+  transition: background-color 0.2s, box-shadow 0.2s;
   font-size: 10px;
 }
-
-
 
 .p-dropdown .p-dropdown-label {
   background: #0000;
@@ -96,7 +91,8 @@ body .ui-progressbar .ui-progressbar-value {
   background: #ffc107;
 }
 
-.p-datatable .p-datatable-tfoot>tr>td, .p-datatable .p-datatable-thead>tr>th {
+.p-datatable .p-datatable-tfoot > tr > td,
+.p-datatable .p-datatable-thead > tr > th {
   text-align: left;
   padding: 0.571rem 0.857rem;
   border: 1px solid #c8c8c8;
@@ -107,7 +103,6 @@ body .ui-progressbar .ui-progressbar-value {
 }
 
 .btn {
-
   height: 38px;
 }
 
@@ -115,14 +110,17 @@ body .ui-progressbar .ui-progressbar-value {
 .custom-filtro .ui-sidebar-left {
   width: 30em;
 }
-.custom-filtro input.ui-inputtext.ui-widget.ui-state-default.ui-corner-all.ng-star-inserted{
+.custom-filtro
+  input.ui-inputtext.ui-widget.ui-state-default.ui-corner-all.ng-star-inserted {
   width: 90%;
 }
-.custom-filtro .ng-trigger.ng-trigger-overlayAnimation.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all.ui-shadow.ng-star-inserted{
+.custom-filtro
+  .ng-trigger.ng-trigger-overlayAnimation.ui-datepicker.ui-widget.ui-widget-content.ui-helper-clearfix.ui-corner-all.ui-shadow.ng-star-inserted {
   top: 100%;
 }
 
-.custom-filtro .ng-trigger.ng-trigger-overlayAnimation.ui-multiselect-panel.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ng-star-inserted{
+.custom-filtro
+  .ng-trigger.ng-trigger-overlayAnimation.ui-multiselect-panel.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ng-star-inserted {
   max-width: 386px;
 }
 
@@ -131,6 +129,35 @@ table i.fas.fa-times {
   margin: 0px 2px;
 }
 
-.custom_dialog .ui-dialog-content.ui-widget-content{
+.custom_dialog .ui-dialog-content.ui-widget-content {
   overflow: unset;
+}
+
+/* CSS SENHAS */
+.p-multiselect {
+  width: 100% !important;
+  border-color: transparent !important;
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.05) !important;
+}
+
+.p-multiselect:not(.p-disabled):hover {
+  border-color: transparent !important;
+}
+
+.p-multiselect .p-multiselect-label.p-placeholder {
+  margin-left: 35px;
+  color: #333 !important;
+}
+
+.icon-select {
+  width: 33px !important;
+  height: 33px !important;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 33px !important;
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  background-color: #fff;
+  box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.05) !important;
 }
