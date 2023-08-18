@@ -1,89 +1,158 @@
-<div>
-  <section style="margin-bottom: 20px">
-    <p-progressBar
-      class="ui-progressbar-label ng-star-inserted"
-      [value]="porcentagemTotal"
-    ></p-progressBar>
-  </section>
+<div class="container-fluid">
+  <div>
+    <section style="margin-bottom: 20px">
+      <p-progressBar
+        class="ui-progressbar-label ng-star-inserted"
+        [value]="porcentagemTotal"
+      ></p-progressBar>
+    </section>
 
-  <div class="row justify-content-between align-items-center">
-    <div class="col-3 px-0">
-      <div class="row">
-        <div class="col-4">
-          <div class="ui-g ui-fluid pl-3">
-            <div class="ui-inputgroup">
-              <button
-                class="btn btn-sm btn-warning mb-1 ml-1"
-                (click)="showFilters = true"
-                pTooltip="Clique para filtrar"
-                tooltipPosition="right"
-              >
-                <i
-                  class="fa fa-filter"
-                  style="color: #212529"
-                  title="Filtrar dados"
-                ></i>
-              </button>
-              <button
-                (click)="exportDataToXlsx()"
-                class="btn btn-sm btn-outline-dark mb-1 mx-1"
-              >
-                <i class="fa fa-file-excel" title="Exportar para Excel"></i>
-              </button>
+    <div class="row justify-content-between align-items-center">
+      <div class="col-3 px-0">
+        <div class="row">
+          <div class="col-4">
+            <div class="ui-g ui-fluid pl-3">
+              <div class="ui-inputgroup">
+                <button
+                  class="btn btn-sm btn-warning mb-1 ml-1"
+                  (click)="showFilters = true"
+                  pTooltip="Clique para filtrar"
+                  tooltipPosition="right"
+                >
+                  <i
+                    class="fa fa-filter"
+                    style="color: #212529"
+                    title="Filtrar dados"
+                  ></i>
+                </button>
+                <button
+                  (click)="exportDataToXlsx()"
+                  class="btn btn-sm btn-outline-dark mb-1 mx-1"
+                >
+                  <i class="fa fa-file-excel" title="Exportar para Excel"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col px-0">
+            <div class="p-inputgroup">
+              <span class="p-inputgroup-addon"
+                ><i class="pi pi-search"></i></span
+              ><input
+                (input)="applyFilter($event)"
+                type="text"
+                pinputtext
+                placeholder="Buscar"
+                class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+              />
             </div>
           </div>
         </div>
-        <div class="col px-0">
-          <div class="p-inputgroup">
-            <span class="p-inputgroup-addon"><i class="pi pi-search"></i></span
-            ><input
-              (input)="applyFilter($event)"
-              type="text"
-              pinputtext
-              placeholder="Buscar"
-              class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
-            />
-          </div>
+      </div>
+      <div class="col-5">
+        <div class="ui-g ui-fluid pl-3" style="text-align: center">
+          <label for="infos">
+            Total de empresas: {{ totalEmpresas }} - Total de trabalhadores:
+            {{ totalTrabalhadores }}
+          </label>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="display-inline-block float-right">
+          <!-- <button class="btn btn-sm btn-warning mb-1 ml-1" (click)="consultaDominio()" tooltipPosition="left"> -->
+          <p-inputMask
+            [(ngModel)]="searchComp"
+            [style]="{ 'margin-bottom': '8px' }"
+            mask="99/9999"
+            placeholder="Mês/Ano"
+          ></p-inputMask>
+          <button
+            (click)="setCompetencia()"
+            class="btn btn-sm btn-warning mb-1 mx-1"
+            style="color: #212529"
+            tooltipPosition="left"
+          >
+            Pesquisar Comp.
+          </button>
         </div>
       </div>
     </div>
-    <div class="col-5">
-      <div class="ui-g ui-fluid pl-3" style="text-align: center">
-        <label for="infos">
-          Total de empresas: {{ totalEmpresas }} - Total de trabalhadores:
-          {{ totalTrabalhadores }}
-        </label>
-      </div>
-    </div>
-    <div class="col-4">
-      <div class="display-inline-block float-right">
-        <!-- <button class="btn btn-sm btn-warning mb-1 ml-1" (click)="consultaDominio()" tooltipPosition="left"> -->
-        <p-inputMask
-          [(ngModel)]="searchComp"
-          [style]="{ 'margin-bottom': '8px' }"
-          mask="99/9999"
-          placeholder="Mês/Ano"
-        ></p-inputMask>
-        <button
-          (click)="setCompetencia()"
-          class="btn btn-sm btn-warning mb-1 mx-1"
-          style="color: #212529"
-          tooltipPosition="left"
-        >
-          Pesquisar Comp.
-        </button>
-      </div>
-    </div>
-  </div>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col">
-        <div class="card flex justify-content-center"></div>
+    <div class="row mt-3">
+      <div class="col-12 col-md-6 col-lg-7">
+        <p-button styleClass="p-btn-inicial">
+          <span class="ml-2 font-bold">Página Inicial</span>
+        </p-button>
+      </div>
+
+      <div class="d-flex justify-content-between col-12 col-md-6 col-lg-5">
+        <p-button styleClass="p-btn-filtro">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 15 15"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M1.51557 6.99998H1.24995C0.834325 6.99998 0.499949 6.6656 0.499949 6.24998V2.24998C0.499949 1.94685 0.681199 1.67185 0.962449 1.55623C1.2437 1.4406 1.56557 1.5031 1.7812 1.71873L3.0812 3.01873C5.8187 0.315605 10.2281 0.32498 12.95 3.04998C15.6843 5.78435 15.6843 10.2156 12.95 12.95C10.2156 15.6844 5.78433 15.6844 3.04995 12.95C2.65932 12.5594 2.65932 11.925 3.04995 11.5344C3.44058 11.1437 4.07495 11.1437 4.46558 11.5344C6.4187 13.4875 9.58433 13.4875 11.5375 11.5344C13.4906 9.58123 13.4906 6.4156 11.5375 4.46248C9.5937 2.51873 6.45308 2.50935 4.49683 4.43123L5.7812 5.71873C5.99683 5.93435 6.05933 6.25623 5.9437 6.53748C5.82808 6.81873 5.55307 6.99998 5.24995 6.99998H1.51557Z"
+              fill="#FCB62B"
+            />
+          </svg>
+          <span class="ml-2 font-bold">Limpar Filtros</span>
+        </p-button>
+
+        <p-button styleClass="p-btn-info">
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_1_632)">
+              <path
+                d="M16.4654 5.53164C16.5717 5.82051 16.482 6.14258 16.2529 6.34844L14.8152 7.65664C14.8517 7.93223 14.8717 8.21445 14.8717 8.5C14.8717 8.78555 14.8517 9.06777 14.8152 9.34336L16.2529 10.6516C16.482 10.8574 16.5717 11.1795 16.4654 11.4684C16.3193 11.8635 16.1433 12.242 15.9408 12.6072L15.7847 12.8762C15.5656 13.2414 15.3199 13.5867 15.051 13.9121C14.8551 14.1512 14.5297 14.2309 14.2375 14.1379L12.3881 13.5502C11.9431 13.8922 11.4517 14.1777 10.9271 14.3936L10.5121 16.2895C10.4457 16.5916 10.2133 16.8307 9.9078 16.8805C9.44959 16.9568 8.97811 16.9967 8.49666 16.9967C8.01522 16.9967 7.54373 16.9568 7.08553 16.8805C6.78006 16.8307 6.54764 16.5916 6.48123 16.2895L6.0662 14.3936C5.54159 14.1777 5.05018 13.8922 4.60526 13.5502L2.75916 14.1412C2.46698 14.2342 2.14159 14.1512 1.94569 13.9154C1.67674 13.59 1.43104 13.2447 1.2119 12.8795L1.05584 12.6105C0.853304 12.2453 0.677328 11.8668 0.531234 11.4717C0.424984 11.1828 0.514633 10.8607 0.743734 10.6549L2.18143 9.34668C2.14491 9.06777 2.12498 8.78555 2.12498 8.5C2.12498 8.21445 2.14491 7.93223 2.18143 7.65664L0.743734 6.34844C0.514633 6.14258 0.424984 5.82051 0.531234 5.53164C0.677328 5.13652 0.853304 4.75801 1.05584 4.39277L1.2119 4.12383C1.43104 3.75859 1.67674 3.41328 1.94569 3.08789C2.14159 2.84883 2.46698 2.76914 2.75916 2.86211L4.60858 3.4498C5.0535 3.10781 5.54491 2.82227 6.06952 2.60645L6.48455 0.710547C6.55096 0.408398 6.78338 0.169336 7.08885 0.119531C7.54705 0.0398437 8.01854 0 8.49998 0C8.98143 0 9.45291 0.0398438 9.91112 0.116211C10.2166 0.166016 10.449 0.405078 10.5154 0.707227L10.9305 2.60313C11.4551 2.81895 11.9465 3.10449 12.3914 3.44648L14.2408 2.85879C14.533 2.76582 14.8584 2.84883 15.0543 3.08457C15.3232 3.40996 15.5689 3.75527 15.7881 4.12051L15.9441 4.38945C16.1467 4.75469 16.3226 5.1332 16.4687 5.52832L16.4654 5.53164ZM8.49998 11.1562C9.96756 11.1562 11.1562 9.96758 11.1562 8.5C11.1562 7.03242 9.96756 5.84375 8.49998 5.84375C7.03241 5.84375 5.84373 7.03242 5.84373 8.5C5.84373 9.96758 7.03241 11.1562 8.49998 11.1562Z"
+                fill="#666666"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1_632">
+                <rect width="17" height="17" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <span class="ml-2 font-bold">+Info Empresas</span>
+        </p-button>
+
+        <p-button styleClass="p-btn-consultoria">
+          <svg
+            width="17"
+            height="17"
+            viewBox="0 0 17 17"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g clip-path="url(#clip0_1_637)">
+              <path
+                d="M16.4654 5.53164C16.5717 5.82051 16.482 6.14258 16.2529 6.34844L14.8152 7.65664C14.8517 7.93223 14.8717 8.21445 14.8717 8.5C14.8717 8.78555 14.8517 9.06777 14.8152 9.34336L16.2529 10.6516C16.482 10.8574 16.5717 11.1795 16.4654 11.4684C16.3193 11.8635 16.1433 12.242 15.9408 12.6072L15.7847 12.8762C15.5656 13.2414 15.3199 13.5867 15.051 13.9121C14.8551 14.1512 14.5297 14.2309 14.2375 14.1379L12.3881 13.5502C11.9431 13.8922 11.4517 14.1777 10.9271 14.3936L10.5121 16.2895C10.4457 16.5916 10.2133 16.8307 9.9078 16.8805C9.44959 16.9568 8.97811 16.9967 8.49666 16.9967C8.01522 16.9967 7.54373 16.9568 7.08553 16.8805C6.78006 16.8307 6.54764 16.5916 6.48123 16.2895L6.0662 14.3936C5.54159 14.1777 5.05018 13.8922 4.60526 13.5502L2.75916 14.1412C2.46698 14.2342 2.14159 14.1512 1.94569 13.9154C1.67674 13.59 1.43104 13.2447 1.2119 12.8795L1.05584 12.6105C0.853304 12.2453 0.677328 11.8668 0.531234 11.4717C0.424984 11.1828 0.514633 10.8607 0.743734 10.6549L2.18143 9.34668C2.14491 9.06777 2.12498 8.78555 2.12498 8.5C2.12498 8.21445 2.14491 7.93223 2.18143 7.65664L0.743734 6.34844C0.514633 6.14258 0.424984 5.82051 0.531234 5.53164C0.677328 5.13652 0.853304 4.75801 1.05584 4.39277L1.2119 4.12383C1.43104 3.75859 1.67674 3.41328 1.94569 3.08789C2.14159 2.84883 2.46698 2.76914 2.75916 2.86211L4.60858 3.4498C5.0535 3.10781 5.54491 2.82227 6.06952 2.60645L6.48455 0.710547C6.55096 0.408398 6.78338 0.169336 7.08885 0.119531C7.54705 0.0398437 8.01854 0 8.49998 0C8.98143 0 9.45291 0.0398438 9.91112 0.116211C10.2166 0.166016 10.449 0.405078 10.5154 0.707227L10.9305 2.60313C11.4551 2.81895 11.9465 3.10449 12.3914 3.44648L14.2408 2.85879C14.533 2.76582 14.8584 2.84883 15.0543 3.08457C15.3232 3.40996 15.5689 3.75527 15.7881 4.12051L15.9441 4.38945C16.1467 4.75469 16.3226 5.1332 16.4687 5.52832L16.4654 5.53164ZM8.49998 11.1562C9.96756 11.1562 11.1562 9.96758 11.1562 8.5C11.1562 7.03242 9.96756 5.84375 8.49998 5.84375C7.03241 5.84375 5.84373 7.03242 5.84373 8.5C5.84373 9.96758 7.03241 11.1562 8.49998 11.1562Z"
+                fill="#9B9B9B"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_1_637">
+                <rect width="17" height="17" fill="white" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <span class="ml-2 font-bold">Limpar Filtros</span>
+        </p-button>
       </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-3">
       <!-- Código -->
       <div class="col-12 col-md-6 col-lg-4 relative mb-3">
         <div class="icon-select">
@@ -268,263 +337,355 @@
       </div>
     </div>
 
-    <div class="row">
-      <div class="col">
-        <div class="card flex justify-content-center"></div>
-      </div>
-    </div>
-  </div>
-
-  <p-table
-    *ngIf="visibleTable"
-    [loading]="loading"
-    [globalFilterFields]="[
-      'cod_empresa',
-      'razao_social',
-      'cnpj',
-      'nome_responsavel',
-      'nome_cordenador'
-    ]"
-    #dt
-    [value]="dataListagem"
-    [paginator]="true"
-    [rows]="15"
-    dataKey="cod_empresa"
-  >
-    <ng-template pTemplate="header" let-columns>
-      <tr>
-        <th rowspan="2" class="th_c">Código</th>
-        <th rowspan="2">Empresa</th>
-        <th rowspan="2">Grupo</th>
-        <th rowspan="2">Razão social</th>
-        <th rowspan="2">CNPJ</th>
-        <th rowspan="2">Observação</th>
-      </tr>
-    </ng-template>
-    <ng-template
-      pTemplate="body"
-      let-rowData
-      let-objeto
-      let-expanded="expanded"
-      let-columns="columns"
-    >
-      <tr>
-        <td>
-          <a href="#" [pRowToggler]="rowData">
-            <i [ngClass]="expanded ? 'fa fa-minus' : 'fa fa-plus'"></i>
-          </a>
-        </td>
-
-        <td style="display: none" pSortableColumn="id_responsavel" class="td_l">
-          {{ objeto.id_responsavel }}
-        </td>
-        <td pSortableColumn="cod_empresa" class="td_l">
-          {{ objeto.cod_empresa }}
-        </td>
-        <td pSortableColumn="razao_social" class="td_l">
-          {{ objeto.razao_social }}
-        </td>
-        <td pSortableColumn="cnpj" class="td_l">{{ objeto.cnpj }}</td>
-        <td pSortableColumn="nome_responsavel" class="td_l">
-          {{ objeto.nome_responsavel }}
-        </td>
-        <td pSortableColumn="nome_cordenador" class="td_l">
-          {{ objeto.nome_cordenador }}
-        </td>
-        <td style="text-align: center" class="td_l">
-          <p-progressBar [value]="objeto.percent_concluido"></p-progressBar>
-        </td>
-      </tr>
-    </ng-template>
-
-    <ng-template pTemplate="rowexpansion" let-rowDataItem let-columns="columns">
-      <tr>
-        <td colspan="7">
-          <div class="col-sm-12 p-3">
-            <div style="margin-bottom: 1%" class="p-inputgroup">
-              <span
-                style="
-                  height: 39px !important;
-                  color: white !important;
-                  background-color: #ffc107 !important;
-                  border-color: #ffc107 !important;
-                "
-                (click)="exportDataToEmpregadosXlsx(rowDataItem.empregados)"
-                class="p-inputgroup-addon btn btn-sm btn-outline-dark mx-1"
-              >
-                <i class="fa fa-file-excel"></i></span
-              ><span class="p-inputgroup-addon">
-                <i class="pi pi-search"></i
-              ></span>
-              <input
-                (input)="
-                  dtinside.filterGlobal(getEventValue($event), 'contains')
-                "
-                type="text"
-                pinputtext=""
-                placeholder="Buscar"
-                class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
-              />
-            </div>
-            <p-table
-              #dtinside
-              [value]="rowDataItem.empregados"
-              dataKey="cod_empregado"
-              [globalFilterFields]="[
-                'cod_empregado',
-                'nome_empregado',
-                'data_evento',
-                'status_validado',
-                'tipo_evento'
-              ]"
+    <div class="row card mt-3">
+      <div class="d-flex col-12 col-md-6 col-lg-6">
+        <div class="acessos relative col-lg-4">
+          <div class="filters">
+            <svg
+              width="19"
+              height="17"
+              viewBox="0 0 19 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <ng-template pTemplate="header">
-                <tr>
-                  <th pSortableColumn="cod_empregado">
-                    Cod. do empregado<p-sortIcon field="price"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="nome_empregado">
-                    Nome <p-sortIcon field="customer"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="inicio_contrato">
-                    Inicio contrato<p-sortIcon field="date"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="data_transmissao">
-                    Data Transmissão<p-sortIcon field="amount"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="data_demissao">
-                    Data Demissão<p-sortIcon field="amount"></p-sortIcon>
-                  </th>
-                  <th pSortableColumn="situacao">
-                    Status<p-sortIcon field="status"></p-sortIcon>
-                  </th>
-                </tr>
-              </ng-template>
-              <ng-template pTemplate="body" let-empregado>
-                <tr>
-                  <td>{{ empregado.cod_empregado }}</td>
-                  <td>
-                    {{ empregado.nome_empregado }}
-                  </td>
-                  <td>{{ formatarData(empregado.inicio_contrato) }}</td>
-                  <td>{{ formatarData(empregado.data_transmissao) }}</td>
-                  <td>{{ formatarData(empregado.data_demissao) }}</td>
-                  <td>{{ empregado.situacao }}</td>
-                </tr>
-              </ng-template>
-              <ng-template pTemplate="emptymessage">
-                <tr>
-                  <td colspan="6">There are no order for this product yet.</td>
-                </tr>
-              </ng-template>
-            </p-table>
+              <path
+                d="M9.60077 16.0223C7.50804 16.0223 5.42249 16.0223 3.32976 16.0223C2.30857 16.0223 1.54626 15.5116 1.20107 14.6142C1.10039 14.3588 1.05005 14.0961 1.05005 13.8189C1.05005 10.2073 1.05005 6.58842 1.05005 2.97683C1.05005 1.7146 1.99214 0.802578 3.33695 0.773394C4.55232 0.751505 5.76769 0.766097 6.98305 0.773394C7.68782 0.78069 8.2991 1.02146 8.78093 1.56867C9.07579 1.897 9.37783 2.21803 9.72302 2.49528C10.1114 2.80902 10.55 2.95494 11.0463 2.95494C12.5781 2.94764 14.1099 2.94764 15.6488 2.95494C16.0156 2.95494 16.3824 2.96953 16.7419 3.08627C17.6193 3.37811 18.2234 4.19528 18.2234 5.13648C18.2306 8.02575 18.2306 10.915 18.2234 13.797C18.2234 15.0884 17.2885 16.015 15.9725 16.0223C13.8438 16.0296 11.7223 16.0223 9.60077 16.0223ZM9.05421 5.6764C8.82408 5.65451 8.55081 5.70558 8.27753 5.77125C6.14165 6.31116 5.2499 8.76996 6.27829 10.5794C7.17003 12.1335 8.91038 12.6588 10.5357 11.9073C10.7011 11.8343 10.8018 11.8416 10.924 11.973C11.2692 12.3378 11.6216 12.688 11.9812 13.0455C12.2257 13.2863 12.5061 13.4103 12.8441 13.279C13.441 13.0382 13.5993 12.3961 13.1606 11.9073C12.8657 11.579 12.5637 11.2579 12.2329 10.9661C11.974 10.7399 11.9452 10.5502 12.0818 10.2219C12.988 8.04764 11.4274 5.6764 9.05421 5.6764Z"
+                fill="#666666"
+              />
+              <path
+                d="M10.6795 8.96695C10.6723 9.85708 9.98191 10.5575 9.10455 10.5575C8.19123 10.5575 7.49365 9.83519 7.50803 8.89399C7.52241 8.04034 8.24157 7.33991 9.10455 7.33991C9.97472 7.33991 10.6867 8.07682 10.6795 8.96695Z"
+                fill="#666666"
+              />
+            </svg>
           </div>
-        </td>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="emptymessage" let-listaCompleta>
-      <tr>
-        <td align="center">Não foram encontrados dados.</td>
-      </tr>
-    </ng-template>
-  </p-table>
 
-  <div *ngIf="!dataListagem">
-    <p align="right">Nenhum registro encontrado.</p>
-  </div>
+          <p-multiSelect
+            defaultLabel="acessos"
+            styleClass="filter"
+            [options]="codes"
+            [(ngModel)]="selectedCodes"
+            optionLabel="code"
+          ></p-multiSelect>
+        </div>
 
-  <section class="custom-filtro">
-    <p-sidebar
-      [style]="{ height: '100%', 'z-index': '10000' }"
-      [(visible)]="showFilters"
-      position="left"
-      [baseZIndex]="10000"
-      class="custom-filter"
+        <div class="acessos relative col-lg-4">
+          <div class="filters">
+            <svg
+              width="19"
+              height="17"
+              viewBox="0 0 19 17"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.60077 16.0223C7.50804 16.0223 5.42249 16.0223 3.32976 16.0223C2.30857 16.0223 1.54626 15.5116 1.20107 14.6142C1.10039 14.3588 1.05005 14.0961 1.05005 13.8189C1.05005 10.2073 1.05005 6.58842 1.05005 2.97683C1.05005 1.7146 1.99214 0.802578 3.33695 0.773394C4.55232 0.751505 5.76769 0.766097 6.98305 0.773394C7.68782 0.78069 8.2991 1.02146 8.78093 1.56867C9.07579 1.897 9.37783 2.21803 9.72302 2.49528C10.1114 2.80902 10.55 2.95494 11.0463 2.95494C12.5781 2.94764 14.1099 2.94764 15.6488 2.95494C16.0156 2.95494 16.3824 2.96953 16.7419 3.08627C17.6193 3.37811 18.2234 4.19528 18.2234 5.13648C18.2306 8.02575 18.2306 10.915 18.2234 13.797C18.2234 15.0884 17.2885 16.015 15.9725 16.0223C13.8438 16.0296 11.7223 16.0223 9.60077 16.0223ZM9.05421 5.6764C8.82408 5.65451 8.55081 5.70558 8.27753 5.77125C6.14165 6.31116 5.2499 8.76996 6.27829 10.5794C7.17003 12.1335 8.91038 12.6588 10.5357 11.9073C10.7011 11.8343 10.8018 11.8416 10.924 11.973C11.2692 12.3378 11.6216 12.688 11.9812 13.0455C12.2257 13.2863 12.5061 13.4103 12.8441 13.279C13.441 13.0382 13.5993 12.3961 13.1606 11.9073C12.8657 11.579 12.5637 11.2579 12.2329 10.9661C11.974 10.7399 11.9452 10.5502 12.0818 10.2219C12.988 8.04764 11.4274 5.6764 9.05421 5.6764Z"
+                fill="#666666"
+              />
+              <path
+                d="M10.6795 8.96695C10.6723 9.85708 9.98191 10.5575 9.10455 10.5575C8.19123 10.5575 7.49365 9.83519 7.50803 8.89399C7.52241 8.04034 8.24157 7.33991 9.10455 7.33991C9.97472 7.33991 10.6867 8.07682 10.6795 8.96695Z"
+                fill="#666666"
+              />
+            </svg>
+          </div>
+
+          <p-multiSelect
+            defaultLabel="Consultas"
+            styleClass="filter"
+            [options]="codes"
+            [(ngModel)]="selectedCodes"
+            optionLabel="code"
+          ></p-multiSelect>
+        </div>
+
+        <div class="acessos relative col-lg-4">
+          <div class="filters">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M1.51557 7H1.24995C0.834325 7 0.499949 6.66563 0.499949 6.25V2.25C0.499949 1.94688 0.681199 1.67188 0.962449 1.55625C1.2437 1.44063 1.56557 1.50313 1.7812 1.71875L3.0812 3.01875C5.8187 0.315628 10.2281 0.325003 12.95 3.05C15.6843 5.78438 15.6843 10.2156 12.95 12.95C10.2156 15.6844 5.78433 15.6844 3.04995 12.95C2.65932 12.5594 2.65932 11.925 3.04995 11.5344C3.44058 11.1438 4.07495 11.1438 4.46558 11.5344C6.4187 13.4875 9.58433 13.4875 11.5375 11.5344C13.4906 9.58125 13.4906 6.41563 11.5375 4.4625C9.5937 2.51875 6.45308 2.50938 4.49683 4.43125L5.7812 5.71875C5.99683 5.93438 6.05933 6.25625 5.9437 6.5375C5.82808 6.81875 5.55307 7 5.24995 7H1.51557Z"
+                fill="#666666"
+              />
+            </svg>
+          </div>
+
+          <p-multiSelect
+            defaultLabel="Consultorias"
+            styleClass="consultorias"
+            [options]="codes"
+            [(ngModel)]="selectedCodes"
+            optionLabel="code"
+          ></p-multiSelect>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4"></div>
+    </div>
+
+    <p-table
+      *ngIf="visibleTable"
+      [loading]="loading"
+      [globalFilterFields]="[
+        'cod_empresa',
+        'razao_social',
+        'cnpj',
+        'nome_responsavel',
+        'nome_cordenador'
+      ]"
+      #dt
+      [value]="dataListagem"
+      [paginator]="true"
+      [rows]="15"
+      dataKey="cod_empresa"
     >
-      <div class="row mx-2">
-        <h4 style="padding-top: 0px; padding-bottom: 0px; margin-bottom: 0px">
-          <i class="fa fa-filter mb-3"></i> Filtro
-        </h4>
-      </div>
-      <div class="mt-2 display-inline-block float-right">
-        <button
-          (click)="clearFilters()"
-          onclick="document.getElementById('cod-input').value = ''"
-          class="btn btn-outline-danger btn-sm float-right"
-          style="margin: auto !important"
-        >
-          <i class="fa fa-eraser"></i> Limpar
-        </button>
-      </div>
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          <th rowspan="2" class="th_c">Código</th>
+          <th rowspan="2">Empresa</th>
+          <th rowspan="2">Grupo</th>
+          <th rowspan="2">Razão social</th>
+          <th rowspan="2">CNPJ</th>
+          <th rowspan="2">Observação</th>
+        </tr>
+      </ng-template>
+      <ng-template
+        pTemplate="body"
+        let-rowData
+        let-objeto
+        let-expanded="expanded"
+        let-columns="columns"
+      >
+        <tr>
+          <td>
+            <a href="#" [pRowToggler]="rowData">
+              <i [ngClass]="expanded ? 'fa fa-minus' : 'fa fa-plus'"></i>
+            </a>
+          </td>
 
-      <div>
-        <br />
-        <span class="ui-label">
-          <label for="_codigo">Código: </label>
+          <td
+            style="display: none"
+            pSortableColumn="id_responsavel"
+            class="td_l"
+          >
+            {{ objeto.id_responsavel }}
+          </td>
+          <td pSortableColumn="cod_empresa" class="td_l">
+            {{ objeto.cod_empresa }}
+          </td>
+          <td pSortableColumn="razao_social" class="td_l">
+            {{ objeto.razao_social }}
+          </td>
+          <td pSortableColumn="cnpj" class="td_l">{{ objeto.cnpj }}</td>
+          <td pSortableColumn="nome_responsavel" class="td_l">
+            {{ objeto.nome_responsavel }}
+          </td>
+          <td pSortableColumn="nome_cordenador" class="td_l">
+            {{ objeto.nome_cordenador }}
+          </td>
+          <td style="text-align: center" class="td_l">
+            <p-progressBar [value]="objeto.percent_concluido"></p-progressBar>
+          </td>
+        </tr>
+      </ng-template>
+
+      <ng-template
+        pTemplate="rowexpansion"
+        let-rowDataItem
+        let-columns="columns"
+      >
+        <tr>
+          <td colspan="7">
+            <div class="col-sm-12 p-3">
+              <div style="margin-bottom: 1%" class="p-inputgroup">
+                <span
+                  style="
+                    height: 39px !important;
+                    color: white !important;
+                    background-color: #ffc107 !important;
+                    border-color: #ffc107 !important;
+                  "
+                  (click)="exportDataToEmpregadosXlsx(rowDataItem.empregados)"
+                  class="p-inputgroup-addon btn btn-sm btn-outline-dark mx-1"
+                >
+                  <i class="fa fa-file-excel"></i></span
+                ><span class="p-inputgroup-addon">
+                  <i class="pi pi-search"></i
+                ></span>
+                <input
+                  (input)="
+                    dtinside.filterGlobal(getEventValue($event), 'contains')
+                  "
+                  type="text"
+                  pinputtext=""
+                  placeholder="Buscar"
+                  class="p-inputtext p-component p-element ng-pristine ng-valid ng-touched"
+                />
+              </div>
+              <p-table
+                #dtinside
+                [value]="rowDataItem.empregados"
+                dataKey="cod_empregado"
+                [globalFilterFields]="[
+                  'cod_empregado',
+                  'nome_empregado',
+                  'data_evento',
+                  'status_validado',
+                  'tipo_evento'
+                ]"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th pSortableColumn="cod_empregado">
+                      Cod. do empregado<p-sortIcon field="price"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="nome_empregado">
+                      Nome <p-sortIcon field="customer"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="inicio_contrato">
+                      Inicio contrato<p-sortIcon field="date"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="data_transmissao">
+                      Data Transmissão<p-sortIcon field="amount"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="data_demissao">
+                      Data Demissão<p-sortIcon field="amount"></p-sortIcon>
+                    </th>
+                    <th pSortableColumn="situacao">
+                      Status<p-sortIcon field="status"></p-sortIcon>
+                    </th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-empregado>
+                  <tr>
+                    <td>{{ empregado.cod_empregado }}</td>
+                    <td>
+                      {{ empregado.nome_empregado }}
+                    </td>
+                    <td>{{ formatarData(empregado.inicio_contrato) }}</td>
+                    <td>{{ formatarData(empregado.data_transmissao) }}</td>
+                    <td>{{ formatarData(empregado.data_demissao) }}</td>
+                    <td>{{ empregado.situacao }}</td>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                  <tr>
+                    <td colspan="6">
+                      There are no order for this product yet.
+                    </td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-listaCompleta>
+        <tr>
+          <td align="center">Não foram encontrados dados.</td>
+        </tr>
+      </ng-template>
+    </p-table>
+
+    <div *ngIf="!dataListagem">
+      <p align="right">Nenhum registro encontrado.</p>
+    </div>
+
+    <section class="custom-filtro">
+      <p-sidebar
+        [style]="{ height: '100%', 'z-index': '10000' }"
+        [(visible)]="showFilters"
+        position="left"
+        [baseZIndex]="10000"
+        class="custom-filter"
+      >
+        <div class="row mx-2">
+          <h4 style="padding-top: 0px; padding-bottom: 0px; margin-bottom: 0px">
+            <i class="fa fa-filter mb-3"></i> Filtro
+          </h4>
+        </div>
+        <div class="mt-2 display-inline-block float-right">
+          <button
+            (click)="clearFilters()"
+            onclick="document.getElementById('cod-input').value = ''"
+            class="btn btn-outline-danger btn-sm float-right"
+            style="margin: auto !important"
+          >
+            <i class="fa fa-eraser"></i> Limpar
+          </button>
+        </div>
+
+        <div>
           <br />
-          <input
-            id="cod-input"
-            [(ngModel)]="codString"
-            (input)="addFilter($event, 'cod_empresa')"
-            type="number"
-            size="15"
-            pInputText
-          />
-        </span>
-        <br />
-        <span class="ui-label">
-          <label for="Empresa">Empresa: </label><br />
-          <p-multiSelect
-            [style]="{ width: '100%' }"
-            [ngModelOptions]="{ standalone: true }"
-            [(ngModel)]="empSelecionada"
-            (onChange)="addFilter($event, 'razao_social')"
-            [options]="filterEmpresa"
-            optionLabel="name"
-            defaultLabel="Empresa"
-          ></p-multiSelect>
-        </span>
+          <span class="ui-label">
+            <label for="_codigo">Código: </label>
+            <br />
+            <input
+              id="cod-input"
+              [(ngModel)]="codString"
+              (input)="addFilter($event, 'cod_empresa')"
+              type="number"
+              size="15"
+              pInputText
+            />
+          </span>
+          <br />
+          <span class="ui-label">
+            <label for="Empresa">Empresa: </label><br />
+            <p-multiSelect
+              [style]="{ width: '100%' }"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="empSelecionada"
+              (onChange)="addFilter($event, 'razao_social')"
+              [options]="filterEmpresa"
+              optionLabel="name"
+              defaultLabel="Empresa"
+            ></p-multiSelect>
+          </span>
 
-        <br />
-        <span class="ui-label">
-          <label for="Empresa">Responsável: </label><br />
-          <p-multiSelect
-            [(ngModel)]="respSelecionado"
-            [ngModelOptions]="{ standalone: true }"
-            (onChange)="addFilter($event, 'id_responsavel')"
-            [options]="usuariosExecutoresRh"
-            optionLabel="name"
-            [style]="{ width: '100%' }"
-            defaultLabel="Responsável"
-          ></p-multiSelect>
-        </span>
+          <br />
+          <span class="ui-label">
+            <label for="Empresa">Responsável: </label><br />
+            <p-multiSelect
+              [(ngModel)]="respSelecionado"
+              [ngModelOptions]="{ standalone: true }"
+              (onChange)="addFilter($event, 'id_responsavel')"
+              [options]="usuariosExecutoresRh"
+              optionLabel="name"
+              [style]="{ width: '100%' }"
+              defaultLabel="Responsável"
+            ></p-multiSelect>
+          </span>
 
-        <br />
-        <span class="ui-label">
-          <label for="Empresa">Coordenador: </label><br />
-          <p-multiSelect
-            [(ngModel)]="cordSelecionado"
-            [ngModelOptions]="{ standalone: true }"
-            (onChange)="addFilter($event, 'id_cordenador')"
-            optionLabel="name"
-            [options]="usuariosCordenadoresRh"
-            [style]="{ width: '100%' }"
-            defaultLabel="Coordenador"
-          ></p-multiSelect>
-        </span>
-        <br />
-        <span class="ui-label">
-          <label for="Empresa">Status: </label><br />
-          <p-dropdown
-            [style]="{ width: '100%' }"
-            [ngModelOptions]="{ standalone: true }"
-            (onChange)="filterTransferidos($event)"
-            [(ngModel)]="status"
-            [options]="statusEmpresas"
-            defaultLabel="label"
-          ></p-dropdown>
-        </span>
-      </div>
-    </p-sidebar>
-  </section>
+          <br />
+          <span class="ui-label">
+            <label for="Empresa">Coordenador: </label><br />
+            <p-multiSelect
+              [(ngModel)]="cordSelecionado"
+              [ngModelOptions]="{ standalone: true }"
+              (onChange)="addFilter($event, 'id_cordenador')"
+              optionLabel="name"
+              [options]="usuariosCordenadoresRh"
+              [style]="{ width: '100%' }"
+              defaultLabel="Coordenador"
+            ></p-multiSelect>
+          </span>
+          <br />
+          <span class="ui-label">
+            <label for="Empresa">Status: </label><br />
+            <p-dropdown
+              [style]="{ width: '100%' }"
+              [ngModelOptions]="{ standalone: true }"
+              (onChange)="filterTransferidos($event)"
+              [(ngModel)]="status"
+              [options]="statusEmpresas"
+              defaultLabel="label"
+            ></p-dropdown>
+          </span>
+        </div>
+      </p-sidebar>
+    </section>
+  </div>
 </div>

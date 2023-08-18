@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { SenhasRoutingModule } from './senhas-routing.module'
 
 import { CheckboxModule } from 'primeng/checkbox'
+import { CardModule } from 'primeng/card';
 import { NgxSpinnerModule } from 'ngx-spinner'
 import { ToggleButtonModule } from 'primeng/togglebutton'
 import { ProgressBarModule } from 'primeng/progressbar'
@@ -49,6 +50,7 @@ const primeModules = [
   MessagesModule,
   MessageModule,
   TooltipModule,
+  CardModule,
   MultiSelectModule
 ]
 
@@ -66,4 +68,4 @@ const primeModules = [
     { provide: ErrorHandler, useClass: GlobalErrorHandler }
   ]
 })
-export class SenhasModule {}
+export class SenhasModule { }
