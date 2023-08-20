@@ -1,19 +1,24 @@
-import { Essocial } from "../../../services/essocial/essocial.service";
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { MessageService } from "primeng/api";
-import { Usuarios } from "src/app/services/essocial/usuarios.service";
-import * as XLSX from "xlsx";
-import { DatePipe } from "@angular/common";
-import { TitleService } from "src/app/services/title.service";
+/* eslint-disable array-callback-return */
+/* eslint-disable eqeqeq */
+/* eslint-disable space-before-function-paren */
+/* eslint-disable comma-dangle */
+/* eslint-disable semi */
+import { Essocial } from '../../../services/essocial/essocial.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MessageService } from 'primeng/api';
+import { Usuarios } from 'src/app/services/essocial/usuarios.service';
+import * as XLSX from 'xlsx';
+import { DatePipe } from '@angular/common';
+import { TitleService } from 'src/app/services/title.service';
 
 interface Code {
-  code: string
+  code: string;
 }
 
 @Component({
-  selector: "app-senhas",
-  templateUrl: "./senhas.component.html",
-  styleUrls: ["./senhas.component.css"],
+  selector: 'app-senhas',
+  templateUrl: './senhas.component.html',
+  styleUrls: ['./senhas.component.css'],
   providers: [MessageService],
 })
 export class SenhasComponent implements OnInit {
@@ -39,17 +44,17 @@ export class SenhasComponent implements OnInit {
   usuariosCordenadoresRh: any = [];
   respSelecionado: any = [];
   subFilters: any = [];
-  searchComp: string = "";
+  searchComp: string = '';
   cordSelecionado: any = [];
-  @ViewChild("dt") dt: any;
-  @ViewChild("dtchild") dtchild: any;
+  @ViewChild('dt') dt: any;
+  @ViewChild('dtchild') dtchild: any;
   backupData: any = [];
-  competenciaAtual: string = "";
-  mesAtualLabel: string = "";
+  competenciaAtual: string = '';
+  mesAtualLabel: string = '';
   porcentagemTotal: any;
   visibleTable: boolean;
   empSelecionada: any = [];
-  codString: any = "";
+  codString: any = '';
 
   status: any;
 
@@ -69,31 +74,37 @@ export class SenhasComponent implements OnInit {
     this.visibleTable = true;
 
     this.statusEmpresas = [
-      { label: "Status", value: "" },
-      { label: "Transmitido", value: "Transmitido" },
-      { label: "Transmitido em atraso", value: "Transmitido em atraso" },
-      { label: "Não transmitido", value: "Não transmitido" },
+      { label: 'Status', value: '' },
+      { label: 'Transmitido', value: 'Transmitido' },
+      { label: 'Transmitido em atraso', value: 'Transmitido em atraso' },
+      { label: 'Não transmitido', value: 'Não transmitido' },
     ];
   }
 
+  visible: boolean = false;
+
+  showDialog() {
+    this.visible = true;
+  }
+
   formatarData(data: any): any {
-    return this.datePipe.transform(data, "dd-MM-yyyy");
+    return this.datePipe.transform(data, 'dd-MM-yyyy');
   }
 
   obterDataAtual(number?: number, ano?: number) {
     const meses = [
-      "Jan",
-      "Fev",
-      "Mar",
-      "Abr",
-      "Mai",
-      "Jun",
-      "Jul",
-      "Ago",
-      "Set",
-      "Out",
-      "Nov",
-      "Dez",
+      'Jan',
+      'Fev',
+      'Mar',
+      'Abr',
+      'Mai',
+      'Jun',
+      'Jul',
+      'Ago',
+      'Set',
+      'Out',
+      'Nov',
+      'Dez',
     ];
 
     const dataAtual = new Date();
@@ -104,14 +115,13 @@ export class SenhasComponent implements OnInit {
     const mesAtual = meses[number ?? dataAtual.getMonth()];
     const anoAtual = ano ?? dataAtual.getFullYear();
 
-    this.mesAtualLabel = mesAtual + "/" + anoAtual;
-    return mesAtual + "/" + anoAtual;
+    this.mesAtualLabel = mesAtual + '/' + anoAtual;
+    return mesAtual + '/' + anoAtual;
   }
 
   codes!: Code[];
 
   selectedCodes!: Code[];
-
 
   cars = [
     { label: 'BMW', value: 'bmw' },
@@ -122,19 +132,18 @@ export class SenhasComponent implements OnInit {
   selectedCars: string[] = [];
 
   async ngOnInit() {
-
     this.codes = [
       { code: '12556' },
       { code: '61566' },
       { code: '78266' },
       { code: '97223' },
-      { code: '23657' }
+      { code: '23657' },
     ];
 
-    this.sharedTitleService.setTitle("eSocial S-2399 Trabalhador Sem Vínculo");
+    this.sharedTitleService.setTitle('eSocial S-2399 Trabalhador Sem Vínculo');
 
     this.competenciaAtual =
-      new Date().getMonth() + 1 + "/" + new Date().getFullYear();
+      new Date().getMonth() + 1 + '/' + new Date().getFullYear();
     await this.setUpTable();
     this.dataListagem = [];
     this.currentDate = new Date();
@@ -145,7 +154,7 @@ export class SenhasComponent implements OnInit {
     this.competenciaAtual = this.searchComp;
 
     if (this.searchComp) {
-      const partes = this.searchComp.split("/");
+      const partes = this.searchComp.split('/');
       const mes = partes[0];
       const ano = partes[1];
       this.obterDataAtual(Number(mes), Number(ano));
@@ -153,7 +162,6 @@ export class SenhasComponent implements OnInit {
 
     await this.setUpTable();
   }
-
 
   async calcularPorcentagemSomada(items: any) {
     let soma = 0;
@@ -170,10 +178,10 @@ export class SenhasComponent implements OnInit {
 
     /* generate workbook and add the worksheet */
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     /* save to file */
-    XLSX.writeFile(wb, "Relatorio.xlsx");
+    XLSX.writeFile(wb, 'Relatorio.xlsx');
   }
 
   async setUpTable() {
@@ -187,10 +195,10 @@ export class SenhasComponent implements OnInit {
 
     /* generate workbook and add the worksheet */
     const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, "Sheet1");
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
 
     /* save to file */
-    XLSX.writeFile(wb, "Relatorio.xlsx");
+    XLSX.writeFile(wb, 'Relatorio.xlsx');
   }
 
   async getListagem() {
@@ -226,26 +234,26 @@ export class SenhasComponent implements OnInit {
 
   filterTransferidos($event: any) {
     this.dataListagem = this.backupData;
-    if ($event.value == "Transmitido") {
+    if ($event.value == 'Transmitido') {
       this.dataListagem = this.dataListagem.filter((empresa: any) => {
         return empresa.empregados.every(
-          (empregado: any) => empregado.situacao == "Transmitido"
+          (empregado: any) => empregado.situacao == 'Transmitido'
         );
       });
     }
 
-    if ($event.value === "Não transmitido") {
+    if ($event.value === 'Não transmitido') {
       this.dataListagem = this.dataListagem.filter((empresa: any) => {
         return empresa.empregados.every(
-          (empregado: any) => empregado.situacao == "N\u00e3o Transmitido"
+          (empregado: any) => empregado.situacao == 'N\u00e3o Transmitido'
         );
       });
     }
 
-    if ($event.value === "Transmitido em atraso") {
+    if ($event.value === 'Transmitido em atraso') {
       this.dataListagem = this.dataListagem.filter((empresa: any) => {
         return empresa.empregados.every(
-          (empregado: any) => empregado.situacao == "Transmitido em atraso"
+          (empregado: any) => empregado.situacao == 'Transmitido em atraso'
         );
       });
     }
@@ -267,7 +275,7 @@ export class SenhasComponent implements OnInit {
 
       const listaCapitalizada = objetosFiltrados.map(
         (obj: { name: string }) => {
-          const nameComEspaco = obj.name.replace(".", " ");
+          const nameComEspaco = obj.name.replace('.', ' ');
           const nameComPrimeiraLetraMaiuscula = nameComEspaco
             .toLowerCase()
             .replace(/\b\w/g, (c: string) => c.toUpperCase());
@@ -314,7 +322,7 @@ export class SenhasComponent implements OnInit {
 
       const listaCapitalizada = objetosFiltrados.map(
         (obj: { name: string }) => {
-          const nameComEspaco = obj.name.replace(".", " ");
+          const nameComEspaco = obj.name.replace('.', ' ');
           const nameComPrimeiraLetraMaiuscula = nameComEspaco
             .toLowerCase()
             .replace(/\b\w/g, (c: string) => c.toUpperCase());
@@ -331,13 +339,13 @@ export class SenhasComponent implements OnInit {
 
   applyFilter(event: any) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dt.filterGlobal(filterValue, "contains");
+    this.dt.filterGlobal(filterValue, 'contains');
   }
 
   clearFilters() {
     this.filters = [];
     this.empSelecionada = [];
-    this.codString = "";
+    this.codString = '';
     this.respSelecionado = [];
     this.cordSelecionado = [];
     this.status = [];
@@ -377,9 +385,9 @@ export class SenhasComponent implements OnInit {
   }
 
   addFilter(value: any, filterType: any) {
-    let filterValue = "";
+    let filterValue = '';
 
-    if ("value" in value) {
+    if ('value' in value) {
       filterValue = value.value;
     } else {
       filterValue = (value.target as HTMLInputElement).value;
@@ -425,13 +433,13 @@ export class SenhasComponent implements OnInit {
         let empresaValue = empresa[filtro.filterType.toLowerCase()];
 
         if (
-          typeof empresaValue === "string" &&
-          typeof empresaValue.toLowerCase === "function"
+          typeof empresaValue === 'string' &&
+          typeof empresaValue.toLowerCase === 'function'
         ) {
           empresaValue = empresaValue.toLowerCase();
         }
 
-        if (typeof empresaValue === "string") {
+        if (typeof empresaValue === 'string') {
           return empresaValue.includes(filtroValue.toLowerCase());
         } else {
           return empresaValue == filtroValue;
