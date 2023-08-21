@@ -54,7 +54,8 @@ button.close {
   box-shadow: none;
 }
 
-.btn-salvar {
+.btn-salvar,
+.btn-excluir {
   font-weight: 600;
   border: transparent;
   border-radius: 5px;
