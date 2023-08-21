@@ -116,7 +116,37 @@
             </button>
           </div>
           <div class="modal-body">
-            ...
+            <div class="row container-fluid d-flex flex-column justify-content-center">
+
+              <div class="d-flex">
+                <div class="col-12 col-md-6 col-lg-6 relative mb-4">
+                  <div class="btn-modal-consultoria">
+                    Empresa
+                  </div>
+                  <p-multiSelect defaultLabel="Grupo" styleClass="selectConsultoria" [options]="codes" [(ngModel)]="selectedCodes" optionLabel="code"></p-multiSelect>
+                </div>
+                <div class="col-12 col-md-6 col-lg-6 relative mb-3">
+                  <div class="btn-modal-consultoria">
+                    Consultas
+                  </div>
+                  <p-multiSelect defaultLabel="Grupo" styleClass="selectConsultoria" [options]="codes" [(ngModel)]="selectedCodes" optionLabel="code"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="box-card">
+                <span>Acessos:</span>
+                <p-checkbox styleClass="checkbox" name="infoEmpresas" value="val1" label="Sefaz" [(ngModel)]="selectedValues"></p-checkbox>
+                <p-checkbox styleClass="checkbox" name="infoEmpresas" value="val2" label="NFs-e" [(ngModel)]="selectedValues"></p-checkbox>
+                <p-checkbox styleClass="checkbox" name="infoEmpresas" value="val3" label="NF Gaúcha" [(ngModel)]="selectedValues"></p-checkbox>
+                <p-checkbox styleClass="checkbox" name="infoEmpresas" value="val4" label="IBGE" [(ngModel)]="selectedValues"></p-checkbox>
+                <p-checkbox styleClass="checkbox" name="infoEmpresas" value="val5" label="Simples Nacional" [(ngModel)]="selectedValues"></p-checkbox>
+              </div>
+
+
+            </div>
+
+
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary group-btn">
@@ -185,7 +215,7 @@
             <h4 class="text-center">Informações salvas com sucesso!</h4>
           </div>
           <div class="modal-footer justify-content-center">
-            <button data-toggle="modal" data-target="#modal-consultoria" data-dismiss="modal" type="button" style="display: flex; gap: 5px" class="btn btn-primary btn-salvar">
+            <button data-toggle="modal" data-target="#modal-consultoria" data-dismiss="modal" type="button" style="display: flex; gap: 10px" class="btn btn-primary btn-salvar">
               <span><svg width="16" height="19" viewBox="0 0 16 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M2.83933 2.24512C1.78874 2.24512 0.93457 3.11454 0.93457 4.18389V13.8778C0.93457 14.9471 1.78874 15.8165 2.83933 15.8165H12.3631C13.4137 15.8165 14.2679 14.9471 14.2679 13.8778V6.52557C14.2679 6.01058 14.0685 5.5168 13.7114 5.15328L11.4108 2.8116C11.0536 2.44808 10.5685 2.24512 10.0625 2.24512H2.83933ZM2.83933 5.15328C2.83933 4.61709 3.26493 4.18389 3.79171 4.18389H9.506C10.0328 4.18389 10.4584 4.61709 10.4584 5.15328V7.09206C10.4584 7.62825 10.0328 8.06144 9.506 8.06144H3.79171C3.26493 8.06144 2.83933 7.62825 2.83933 7.09206V5.15328ZM7.60124 13.8778C6.55064 13.8778 5.69648 13.0084 5.69648 11.939C5.69648 10.8696 6.55064 10.0002 7.60124 10.0002C8.65183 10.0002 9.506 10.8696 9.506 11.939C9.506 13.0084 8.65183 13.8778 7.60124 13.8778Z" fill="white" />
                 </svg>

@@ -15,6 +15,11 @@ interface Code {
   code: string;
 }
 
+interface City {
+  name: string;
+  code: string;
+}
+
 @Component({
   selector: 'app-senhas',
   templateUrl: './senhas.component.html',
@@ -57,6 +62,12 @@ export class SenhasComponent implements OnInit {
   codString: any = '';
 
   status: any;
+
+  selectedValues: string[] = [];
+
+  cities!: City[];
+
+  selectedCities!: City[];
 
   constructor(
     private essocialService: Essocial,

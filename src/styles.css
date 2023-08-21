@@ -200,3 +200,8 @@ button.p-ripple.p-element.p-btn-inicial.p-button.p-component {
   line-height: normal;
   margin-left: 20px;
 }
+
+.p-element.p-multiselect-label-container.ng-tns-c69-1,
+.p-element.p-multiselect-label-container.ng-tns-c69-0 {
+  margin-left: 25px;
+}
