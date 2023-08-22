@@ -259,17 +259,50 @@
             </div>
           </div>
 
-          <div *ngIf="consultoriaModo === 'editar'" class="mt-3 card box-cadastrar-nova border border-primary">
-            <h4 class="mb-3 title-cadastrar ">Editar</h4>
+          <div *ngIf="consultoriaModo === 'editar'" class="mt-3 card bg-transparent px-2">
+            <h4 class="mt-2 mb-2 title-cadastrar ">Editar</h4>
             <div class="d-flex col-lg-12 flex-wrap ">
-              <p-multiSelect class="" [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
-              <p-multiSelect class="order border-secondary" [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              <div class="col-lg-6 mb-2 relative cadastro-select">
+                <div class="badge-cadastro">
+                  <span>Empresa</span>
+                </div>
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              </div>
 
-              <p-multiSelect class="" [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
-              <p-multiSelect class="order border-secondary" [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              <div class="col-lg-6 mb-2 relative  cadastro-select">
+                <div class="badge-cadastro">
+                  <span>E-mail</span>
+                </div>
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              </div>
 
-              <p-multiSelect class="" [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
-              <p-multiSelect class="order border-secondary" [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              <div class="col-lg-6 mb-2 relative  cadastro-select">
+                <div class="badge-cadastro">
+                  <span>Login</span>
+                </div>
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              </div>
+
+              <div class="col-lg-6 mb-2 relative cadastro-select">
+                <div class="badge-cadastro">
+                  <span>Telefone</span>
+                </div>
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              </div>
+
+              <div class="col-lg-6 mb-2 relative cadastro-select">
+                <div class="badge-cadastro">
+                  <span>Endereço</span>
+                </div>
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              </div>
+
+              <div class="col-lg-6 mb-2 relative cadastro-select">
+                <div class="badge-cadastro">
+                  <span>Senha</span>
+                </div>
+                <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+              </div>
             </div>
           </div>
         </div>

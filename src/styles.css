@@ -167,11 +167,11 @@ table i.fas.fa-times {
   z-index: 1;
   position: absolute;
   left: -15px;
-  top: 0px;
+  top: 3px;
   width: 80px;
-  height: 31px;
+  height: 38px;
   text-align: center;
-  line-height: 31px;
+  line-height: 38px;
   border-radius: 5px;
   color: #fff;
   background: #fcb62b;
@@ -203,6 +203,14 @@ table i.fas.fa-times {
   > div:nth-child(6)
   > div {
   margin-left: 18px !important;
+}
+
+.cadastro-select .p-multiselect {
+  margin-left: 10px;
+}
+
+.cadastro-select:nth-child(even) .p-multiselect {
+  margin-left: 28px;
 }
 
 button.p-ripple.p-element.p-btn-inicial.p-button.p-component,
