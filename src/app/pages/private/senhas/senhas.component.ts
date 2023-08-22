@@ -69,6 +69,8 @@ export class SenhasComponent implements OnInit {
 
   selectedCities!: City[];
 
+  consultoriaModo: string;
+
   constructor(
     private essocialService: Essocial,
     private datePipe: DatePipe,
@@ -78,6 +80,7 @@ export class SenhasComponent implements OnInit {
     this.showFilters = false;
     this.totalEmpresas = 0;
     this.porcentagemTotal = 0;
+    this.consultoriaModo = '';
 
     this.respSelecionado = [];
     this.totalTrabalhadores = 0;
@@ -92,10 +95,8 @@ export class SenhasComponent implements OnInit {
     ];
   }
 
-  visible: boolean = false;
-
-  showDialog() {
-    this.visible = true;
+  changeModoConsultoria(typeModo: string) {
+    this.consultoriaModo = typeModo;
   }
 
   formatarData(data: any): any {
