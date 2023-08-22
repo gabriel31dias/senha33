@@ -163,6 +163,21 @@ table i.fas.fa-times {
   box-shadow: 0px 4px 3px 0px rgba(0, 0, 0, 0.05) !important;
 }
 
+.badge-cadastro {
+  z-index: 1;
+  position: absolute;
+  left: -15px;
+  top: 5px;
+  width: 80px;
+  height: 35px;
+  text-align: center;
+  line-height: 35px;
+  border-radius: 5px;
+  color: #fff;
+  background: #fcb62b;
+  box-shadow: 0px 2px 8px -3px rgba(0, 0, 0, 0.15);
+}
+
 button.p-ripple.p-element.p-btn-inicial.p-button.p-component,
 button.p-ripple.p-element.p-btn-filtro.p-button.p-component,
 button.p-ripple.p-element.p-btn-info.p-button.p-component,
@@ -204,4 +219,8 @@ button.p-ripple.p-element.p-btn-inicial.p-button.p-component {
 .p-element.p-multiselect-label-container.ng-tns-c69-1,
 .p-element.p-multiselect-label-container.ng-tns-c69-0 {
   margin-left: 25px;
+}
+
+.d-flex.col-lg-12.flex-wrap.border.border-secondary {
+  padding: 0;
 }
