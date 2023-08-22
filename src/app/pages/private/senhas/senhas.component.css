@@ -132,8 +132,3 @@ button.btn.btn-primary.group-btn:focus {
   font-weight: 400;
   line-height: normal;
 }
-
-.box-cadastrar-nova {
-  background-color: red;
-  gap: 10px;
-}

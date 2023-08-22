@@ -212,8 +212,8 @@
             </button>
           </div>
 
-          <div *ngIf="consultoriaModo === 'cadastro'" class="mt-3 card">
-            <h4 class="mb-2 title-cadastrar ">Cadastrar Nova</h4>
+          <div *ngIf="consultoriaModo === 'cadastro'" class="mt-3 card bg-transparent px-2">
+            <h4 class="mt-2 mb-2 title-cadastrar ">Cadastrar Nova</h4>
             <div class="d-flex col-lg-12 flex-wrap ">
               <div class="col-lg-6 mb-2 relative cadastro-select">
                 <div class="badge-cadastro">
@@ -236,21 +236,21 @@
                 <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
               </div>
 
-              <div class="col-lg-6 mb-2 relative  cadastro-select">
+              <div class="col-lg-6 mb-2 relative cadastro-select">
                 <div class="badge-cadastro">
                   <span>Telefone</span>
                 </div>
                 <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
               </div>
 
-              <div class="col-lg-6 mb-2 relative  cadastro-select">
+              <div class="col-lg-6 mb-2 relative cadastro-select">
                 <div class="badge-cadastro">
                   <span>Endereço</span>
                 </div>
                 <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
               </div>
 
-              <div class="col-lg-6 mb-2 relative  cadastro-select">
+              <div class="col-lg-6 mb-2 relative cadastro-select">
                 <div class="badge-cadastro">
                   <span>Senha</span>
                 </div>

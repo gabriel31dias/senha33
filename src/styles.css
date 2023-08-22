@@ -167,15 +167,42 @@ table i.fas.fa-times {
   z-index: 1;
   position: absolute;
   left: -15px;
-  top: 5px;
+  top: 0px;
   width: 80px;
-  height: 35px;
+  height: 31px;
   text-align: center;
-  line-height: 35px;
+  line-height: 31px;
   border-radius: 5px;
   color: #fff;
   background: #fcb62b;
   box-shadow: 0px 2px 8px -3px rgba(0, 0, 0, 0.15);
+}
+
+#modal-consultoria
+  > div
+  > div
+  > div.modal-body
+  > div.mt-3.card.px-2.ng-star-inserted
+  > div
+  > div:nth-child(2)
+  > div,
+#modal-consultoria
+  > div
+  > div
+  > div.modal-body
+  > div.mt-3.card.px-2.ng-star-inserted
+  > div
+  > div:nth-child(4)
+  > div,
+#modal-consultoria
+  > div
+  > div
+  > div.modal-body
+  > div.mt-3.card.px-2.ng-star-inserted
+  > div
+  > div:nth-child(6)
+  > div {
+  margin-left: 18px !important;
 }
 
 button.p-ripple.p-element.p-btn-inicial.p-button.p-component,
@@ -216,11 +243,39 @@ button.p-ripple.p-element.p-btn-inicial.p-button.p-component {
   margin-left: 20px;
 }
 
-.p-element.p-multiselect-label-container.ng-tns-c69-1,
+/* .p-element.p-multiselect-label-container.ng-tns-c69-1,
 .p-element.p-multiselect-label-container.ng-tns-c69-0 {
   margin-left: 25px;
 }
 
 .d-flex.col-lg-12.flex-wrap.border.border-secondary {
   padding: 0;
+} */
+
+/* .ng-tns-c66-14.p-multiselect.p-component,
+.ng-tns-c66-16.p-multiselect.p-component,
+.ng-tns-c66-18.p-multiselect.p-component {
+  margin-left: 10px;
+  padding: 0;
+  background-color: #f3f3f3;
 }
+
+.ng-tns-c66-15.p-multiselect.p-component,
+.ng-tns-c66-17.p-multiselect.p-component,
+.ng-tns-c66-19.p-multiselect.p-component {
+  margin-left: 30px;
+  background-color: #f3f3f3;
+  padding: 0;
+}
+
+p-multiselect.p-element.p-inputwrapper.ng-tns-c66-28.ng-untouched.ng-pristine.ng-valid.ng-star-inserted,
+p-multiselect.p-element.p-inputwrapper.ng-tns-c66-30.ng-untouched.ng-pristine.ng-valid.ng-star-inserted,
+p-multiselect.p-element.p-inputwrapper.ng-tns-c66-32.ng-untouched.ng-pristine.ng-valid.ng-star-inserted {
+  margin-left: 12px;
+}
+
+p-multiselect.p-element.p-inputwrapper.ng-tns-c66-27.ng-untouched.ng-pristine.ng-valid.ng-star-inserted,
+p-multiselect.p-element.p-inputwrapper.ng-tns-c66-29.ng-untouched.ng-pristine.ng-valid.ng-star-inserted,
+p-multiselect.p-element.p-inputwrapper.ng-tns-c66-31.ng-untouched.ng-pristine.ng-valid.ng-star-inserted {
+  margin-left: 30px;
+} */
