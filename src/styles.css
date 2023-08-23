@@ -178,6 +178,10 @@ table i.fas.fa-times {
   box-shadow: 0px 2px 8px -3px rgba(0, 0, 0, 0.15);
 }
 
+#modalInfoEmpresas > div > div > div.modal-body > div > div:nth-child(2) > div {
+  margin-left: 18px;
+}
+
 #modal-consultoria
   > div
   > div
@@ -281,4 +285,27 @@ input.p-inputtext.p-component.p-element {
   > div:nth-child(6)
   > input {
   margin-left: 70px;
+}
+
+.p-radiobutton .p-radiobutton-box {
+  border-radius: 5px !important;
+  border: 1px solid #a2a2a2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
+  background: #ffffff;
+  width: 23px !important;
+  height: 22px !important;
+  color: #a2a2a2;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight:not(.p-disabled):hover {
+  border-color: #ffc107 !important;
+  background: #ffc107 !important;
+  color: #ffffff;
+}
+
+.p-radiobutton .p-radiobutton-box.p-highlight {
+  border-color: #ffc107 !important;
+  background: #ffc107 !important;
 }

@@ -53,24 +53,69 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title text-white" id="exampleModalLongTitle">
-            <span><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <g clip-path="url(#clip0_15_11693)">
+            <span class="pr-2"><svg width="22" height="23" viewBox="0 0 22 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <g clip-path="url(#clip0_27_9791)">
                   <path d="M20.0194 1.28074C19.0897 0.351083 17.587 0.351083 16.6574 1.28074L15.3796 2.55423L19.5355 6.71009L20.8132 5.43234C21.7429 4.50269 21.7429 2.99996 20.8132 2.07031L20.0194 1.28074ZM7.31837 10.6197C7.05943 10.8787 6.85991 11.197 6.7453 11.5494L5.48878 15.3189C5.36567 15.684 5.46331 16.0873 5.73499 16.3632C6.00667 16.6391 6.40994 16.7325 6.77926 16.6094L10.5488 15.3529C10.8969 15.234 11.2153 15.0388 11.4785 14.7798L18.5803 7.6737L14.4202 3.5136L7.31837 10.6197ZM4.0752 3.07637C1.82535 3.07637 0 4.90172 0 7.15156V18.0188C0 20.2686 1.82535 22.0939 4.0752 22.0939H14.9424C17.1922 22.0939 19.0176 20.2686 19.0176 18.0188V13.9436C19.0176 13.1922 18.4105 12.5852 17.6592 12.5852C16.9078 12.5852 16.3008 13.1922 16.3008 13.9436V18.0188C16.3008 18.7701 15.6937 19.3771 14.9424 19.3771H4.0752C3.32383 19.3771 2.7168 18.7701 2.7168 18.0188V7.15156C2.7168 6.4002 3.32383 5.79317 4.0752 5.79317H8.15039C8.90175 5.79317 9.50879 5.18613 9.50879 4.43477C9.50879 3.6834 8.90175 3.07637 8.15039 3.07637H4.0752Z" fill="white" />
                 </g>
                 <defs>
-                  <clipPath id="clip0_15_11693">
+                  <clipPath id="clip0_27_9791">
                     <rect width="21.7344" height="21.7344" fill="white" transform="translate(0 0.359375)" />
                   </clipPath>
                 </defs>
               </svg>
-            </span>+Consultoria
+
+            </span>+Infos Empresas
           </h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span class="text-white" aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          ...
+          <div class="d-flex col-lg-12 flex-wrap ">
+            <div class="col-lg-6 mb-2 relative cadastro-select">
+              <div class="badge-cadastro">
+                <span>Empresa</span>
+              </div>
+              <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+            </div>
+
+            <div class="col-lg-6 mb-2 relative cadastro-select">
+              <div class="badge-cadastro">
+                <span>Empresa</span>
+              </div>
+              <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Select a City" optionLabel="name"></p-multiSelect>
+            </div>
+
+
+            <div class="d-flex flex-row mt-4 col-lg-12 card p-3" style="gap: 20px;">
+              <span class=" ">Acessos:</span>
+
+              <div class="d-flex align-items-center  ">
+                <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
+                <label for="ingredient1" class="ml-2">Sefaz</label>
+              </div>
+
+              <div class="d-flex align-items-center  ">
+                <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient" inputId="ingredient2"></p-radioButton>
+                <label for="ingredient2" class="ml-2">NFs-e</label>
+              </div>
+
+              <div class="d-flex align-items-center  ">
+                <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="ingredient3"></p-radioButton>
+                <label for="ingredient3" class="ml-2">NF Gaúcha </label>
+              </div>
+
+              <div class="d-flex align-items-center  ">
+                <p-radioButton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="ingredient4"></p-radioButton>
+                <label for="ingredient4" class="ml-2">IBGE</label>
+              </div>
+
+              <div class="d-flex align-items-center">
+                <p-radioButton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="ingredient4"></p-radioButton>
+                <label for="ingredient4" class="ml-2">Simples Nacional</label>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary group-btn">

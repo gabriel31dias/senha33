@@ -71,6 +71,8 @@ export class SenhasComponent implements OnInit {
 
   consultoriaModo: string;
 
+  ingredient!: string;
+
   constructor(
     private essocialService: Essocial,
     private datePipe: DatePipe,
