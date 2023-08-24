@@ -325,7 +325,8 @@ input.p-inputtext.p-component.p-element {
 }
 
 .box-input-item .p-inputtext:enabled:focus,
-.input-multi .p-inputtext:enabled:focus {
+.input-multi .p-inputtext:enabled:focus,
+.input-multi-primary .p-inputtext:enabled:focus {
   outline: 0 none;
   outline-offset: 0;
   box-shadow: 0 0 0 0.2rem #ffc107;
@@ -347,5 +348,11 @@ input.p-inputtext.p-component.p-element {
 .input-multi .p-multiselect .p-multiselect-panel {
   width: 280px;
   left: -153px !important;
+  top: 44px !important;
+}
+
+.input-multi-primary .p-multiselect .p-multiselect-panel {
+  width: 280px;
+  left: -67px !important;
   top: 44px !important;
 }
