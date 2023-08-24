@@ -70,8 +70,9 @@ export class SenhasComponent implements OnInit {
   selectedCities!: City[];
 
   consultoriaModo: string;
+  optionsInfoEmpresa: string;
 
-  ingredient!: string;
+  acesso!: string;
 
   constructor(
     private essocialService: Essocial,
@@ -83,6 +84,7 @@ export class SenhasComponent implements OnInit {
     this.totalEmpresas = 0;
     this.porcentagemTotal = 0;
     this.consultoriaModo = '';
+    this.optionsInfoEmpresa = '';
 
     this.respSelecionado = [];
     this.totalTrabalhadores = 0;
@@ -99,6 +101,10 @@ export class SenhasComponent implements OnInit {
 
   changeModoConsultoria(typeModo: string) {
     this.consultoriaModo = typeModo;
+  }
+
+  changeOptionInfoEmpresa(optionModo: string) {
+    this.optionsInfoEmpresa = optionModo;
   }
 
   formatarData(data: any): any {

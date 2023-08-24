@@ -309,3 +309,43 @@ input.p-inputtext.p-component.p-element {
   border-color: #ffc107 !important;
   background: #ffc107 !important;
 }
+
+/* CSS Acessos */
+.d-flex.box-input-acesso {
+  margin: 10px 0;
+}
+
+.box-input-item {
+  align-items: center;
+}
+
+.box-input-item input.p-inputtext.p-component.p-element {
+  width: inherit;
+  margin-left: 0px;
+}
+
+.box-input-item .p-inputtext:enabled:focus,
+.input-multi .p-inputtext:enabled:focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem #ffc107;
+  border-color: #ffc107;
+}
+
+.box-input-item span,
+.input-multi-text {
+  width: 180px;
+  padding: 10px 5px;
+  border-radius: 5px 0 0 5px;
+  background: #9a9792;
+  box-shadow: 0px 2px 8px -3px rgba(0, 0, 0, 0.15);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.input-multi .p-multiselect .p-multiselect-panel {
+  width: 280px;
+  left: -153px !important;
+  top: 44px !important;
+}

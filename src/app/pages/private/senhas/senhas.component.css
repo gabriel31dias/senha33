@@ -132,3 +132,10 @@ button.btn.btn-primary.group-btn:focus {
   font-weight: 400;
   line-height: normal;
 }
+
+@media (min-width: 992px) {
+  .modal-lg,
+  .modal-xl {
+    max-width: 1024px !important;
+  }
+}

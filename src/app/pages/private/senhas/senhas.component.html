@@ -91,29 +91,83 @@
               <span class=" ">Acessos:</span>
 
               <div class="d-flex align-items-center  ">
-                <p-radioButton name="pizza" value="Cheese" [(ngModel)]="ingredient" inputId="ingredient1"></p-radioButton>
-                <label for="ingredient1" class="ml-2">Sefaz</label>
+                <p-radioButton (click)="changeOptionInfoEmpresa('sefaz')" name="sefaz" value="sefaz" [(ngModel)]="acesso" inputId="sefaz"></p-radioButton>
+                <label for="sefaz" class="ml-2">Sefaz</label>
               </div>
 
               <div class="d-flex align-items-center  ">
-                <p-radioButton name="pizza" value="Mushroom" [(ngModel)]="ingredient" inputId="ingredient2"></p-radioButton>
-                <label for="ingredient2" class="ml-2">NFs-e</label>
+                <p-radioButton (click)="changeOptionInfoEmpresa('nfse')" name="nfse" value="nfse" [(ngModel)]="acesso" inputId="nfse"></p-radioButton>
+                <label for="nfse" class="ml-2">NFs-e</label>
               </div>
 
               <div class="d-flex align-items-center  ">
-                <p-radioButton name="pizza" value="Pepper" [(ngModel)]="ingredient" inputId="ingredient3"></p-radioButton>
-                <label for="ingredient3" class="ml-2">NF Gaúcha </label>
+                <p-radioButton (click)="changeOptionInfoEmpresa('nfgaucha')" name="nfgaucha" value="nfgaucha" [(ngModel)]="acesso" inputId="nfgaucha"></p-radioButton>
+                <label for="nfgaucha" class="ml-2">NF Gaúcha</label>
               </div>
 
               <div class="d-flex align-items-center  ">
-                <p-radioButton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="ingredient4"></p-radioButton>
-                <label for="ingredient4" class="ml-2">IBGE</label>
+                <p-radioButton (click)="changeOptionInfoEmpresa('ibge')" name="ibge" value="ibge" [(ngModel)]="acesso" inputId="ibge"></p-radioButton>
+                <label for="ibge" class="ml-2">IBGE</label>
               </div>
 
               <div class="d-flex align-items-center">
-                <p-radioButton name="pizza" value="Onion" [(ngModel)]="ingredient" inputId="ingredient4"></p-radioButton>
-                <label for="ingredient4" class="ml-2">Simples Nacional</label>
+                <p-radioButton (click)="changeOptionInfoEmpresa('simplesNacional')" name="simplesNacional" value="simplesNacional" [(ngModel)]="acesso" inputId="simplesNacional"></p-radioButton>
+                <label for="simplesNacional" class="ml-2">Simples Nacional</label>
               </div>
+            </div>
+
+            <div *ngIf="optionsInfoEmpresa === 'sefaz'" class="mt-3 card col-lg-12 bg-transparent px-2">
+              <h4 class="mt-2 mb-2 title-cadastrar ">Sefaz</h4>
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-4">
+                  <span>Insc. Estadual</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-5">
+                  <span>Sócio Responsável</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex input-multi col-lg-3">
+                  <span class="input-multi-text">Estado</span>
+
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Estado" optionLabel="name"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-5">
+                  <span>CPF Responsável</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-3">
+                  <span>Senha</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span>Observação</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="optionsInfoEmpresa === 'nfse'" class="mt-3 border border-primary col-lg-12 card bg-transparent px-2">
+              <h4 class="mt-2 mb-2 title-cadastrar ">NFs-e</h4>
+            </div>
+
+            <div *ngIf="optionsInfoEmpresa === 'nfgaucha'" class="mt-3 border border-primary col-lg-12 card bg-transparent px-2">
+              <h4 class="mt-2 mb-2 title-cadastrar ">NF Gaúcha</h4>
+            </div>
+
+            <div *ngIf="optionsInfoEmpresa === 'ibge'" class="mt-3 border border-primary col-lg-12 card bg-transparent px-2">
+              <h4 class="mt-2 mb-2 title-cadastrar ">IBGE</h4>
+            </div>
+
+            <div *ngIf="optionsInfoEmpresa === 'simplesNacional'" class="mt-3 border border-primary col-lg-12 card bg-transparent px-2">
+              <h4 class="mt-2 mb-2 title-cadastrar ">Simples Nacional</h4>
             </div>
           </div>
         </div>
