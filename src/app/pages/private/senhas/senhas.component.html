@@ -241,11 +241,139 @@
                   <input pInputText type="text" placeholder="Digite..." />
                 </div>
               </div>
+              <div class="d-flex justify-content-center">============== Tela após marcar filtro: Acessos > Simples Nacional e Consultas > Prefeitura ==============</div>
+              <!-- Tela após marcar filtro: Acessos > Simples Nacional e Consultas > Prefeitura -->
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Múnicípio</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Insc. Municipal</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">CPF/Login</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-5"> <span class="bg-badge">Link de Acesso</span> <input pInputText type="text" placeholder="Digite..." /> </div>
+                <div class="d-flex box-input-item col-lg-3"> <span class="bg-badge">Senha</span> <input pInputText type="text" placeholder="Digite..." /> </div>
+                <div class="d-flex box-input-item col-lg-4"> <span class="bg-badge">Observação</span> <input pInputText type="text" placeholder="Digite..." /> </div>
+              </div>
+
+              <div class="d-flex justify-content-center">============== Tela após marcar filtro: Acessos > Simples Nacional
+                e Consultas > Contador ==============</div>
+              <h4 class="mt-2  mb-2 title-cadastrar ">Contador</h4>
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex contador col-lg-6">
+                  <span class="input-multi-text bg-badge">Selecione</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Selecione" optionLabel="name"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center">============== Tela após marcar filtro:Acessos > Simples Nacional
+                e Consultas > Contador Caixa de seleção > Municípios ==============</div>
+
+              <h4 class="mt-2  mb-2 title-cadastrar ">Contador</h4>
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex contador col-lg-6">
+                  <span class="input-multi-text bg-badge">Selecione</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Municípios" optionLabel="name"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Contador</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex input-multi col-lg-4">
+                  <span class="input-multi-text bg-badge">Município</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Selecione" optionLabel="name"></p-multiSelect>
+                </div>
+
+                <div class="d-flex input-multi col-lg-4">
+                  <span class="input-multi-text bg-badge">Estado</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Selecione" optionLabel="name"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Login/Usuário</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Senha</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Observação</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+              </div>
+
+              <div class="d-flex justify-content-center">============== Tela após marcar filtro:Acessos > Simples Nacional
+                e
+                Consultas > Contador
+                Caixa de seleção > Estados ==============</div>
+
+              <h4 class="mt-2  mb-2 title-cadastrar ">Contador</h4>
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex contador col-lg-6">
+                  <span class="input-multi-text bg-badge">Selecione</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Estados" optionLabel="name"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Contador</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex input-multi col-lg-4">
+                  <span class="input-multi-text bg-badge">Município</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Selecione" optionLabel="name"></p-multiSelect>
+                </div>
+
+                <div class="d-flex input-multi col-lg-4">
+                  <span class="input-multi-text bg-badge">Estado</span>
+                  <p-multiSelect [options]="cities" [(ngModel)]="selectedCities" defaultLabel="Selecione" optionLabel="name"></p-multiSelect>
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-between box-input-acesso">
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Login/Usuário</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Senha</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+                <div class="d-flex box-input-item col-lg-4">
+                  <span class="bg-badge">Observação</span>
+                  <input pInputText type="text" placeholder="Digite..." />
+                </div>
+
+              </div>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary group-btn">
+          <button type="button" data-toggle="modal" data-toggle="modal" data-target="#modalConfirmacaoExclusao" data-dismiss="modal" class="btn btn-primary group-btn">
             <span>
               <svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M15.0591 3.18405C13.7711 3.05605 12.4831 2.96004 11.187 2.88804V2.88004L11.011 1.84003C10.891 1.10402 10.715 0 8.84301 0H6.74698C4.88293 0 4.70693 1.05602 4.57893 1.83203L4.41093 2.85604C3.66691 2.90404 2.9229 2.95204 2.17889 3.02404L0.546869 3.18405C0.210864 3.21605 -0.02914 3.51205 0.00286046 3.84006C0.0348609 4.16806 0.322865 4.40806 0.65887 4.37606L2.29089 4.21606C6.48298 3.80006 10.707 3.96006 14.9471 4.38406H15.0111C15.3151 4.38406 15.5791 4.15206 15.6111 3.84006C15.6351 3.51205 15.3951 3.21605 15.0591 3.18405Z" fill="#707070" />
@@ -287,7 +415,7 @@
             Sim
           </button>
 
-          <button type="button" data-toggle="modal" data-target="#modal-consultoria" data-dismiss="modal" class="btn btn-primary .btn-excluir bg-secondary">
+          <button type="button" data-toggle="modal" data-target="#modal-consultoria" data-dismiss="modal" class="btn btn-primary .btn-excluir bg-badge">
             Não
           </button>
         </div>
@@ -512,7 +640,7 @@
             Sim
           </button>
 
-          <button type="button" data-toggle="modal" data-target="#modal-consultoria" data-dismiss="modal" class="btn btn-primary .btn-excluir bg-secondary">
+          <button type="button" data-toggle="modal" data-target="#modal-consultoria" data-dismiss="modal" class="btn btn-primary .btn-excluir bg-badge">
             Não
           </button>
         </div>
